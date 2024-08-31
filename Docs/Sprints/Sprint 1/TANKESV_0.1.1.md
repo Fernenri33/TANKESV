@@ -10,13 +10,16 @@
       - [Tecnologías a usar](#tecnologías-a-usar)
       - [Objetivos y Limitantes](#objetivos-y-limitantes)
   - [Sprint 1](#sprint-1)
-  - [Creación de workspace en JIRA](#creación-de-workspace-en-jira)
+    - [Creación de workspace en JIRA](#creación-de-workspace-en-jira)
     - [Product Backlog](#product-backlog)
-  - [Diagrama de Entidad Relación](#diagrama-de-entidad-relación)
-  - [Diseño de diagramas de caso de uso](#diseño-de-diagramas-de-caso-de-uso)
-  - [Diseño de wireframes](#diseño-de-wireframes)
-  - [Investigar Springboot y thymeleaf](#investigar-springboot-y-thymeleaf)
-  - [Creación de repositorio en GitHub](#creación-de-repositorio-en-github)
+    - [Diagrama de Entidad Relación](#diagrama-de-entidad-relación)
+    - [Diseño de diagramas de caso de uso](#diseño-de-diagramas-de-caso-de-uso)
+    - [Diseño de wireframes](#diseño-de-wireframes)
+    - [Investigar Springboot y thymeleaf](#investigar-springboot-y-thymeleaf)
+      - [Spring Boot](#spring-boot)
+      - [Thymeleaf](#thymeleaf)
+      - [Código de práctica](#código-de-práctica)
+    - [Creación de repositorio en GitHub](#creación-de-repositorio-en-github)
 
 ## Control de versiones
 
@@ -59,8 +62,6 @@ Esta propuesta presenta el desarrollo de una plataforma de marketplace orientada
 
 **MySQL** gestionará las bases de datos del marketplace, asegurando un almacenamiento y recuperación eficientes de la información clave, como los datos de usuarios y productos. Este sistema de gestión de bases de datos relacional es conocido por su confiabilidad y capacidad para manejar grandes volúmenes de datos de manera eficiente.
 
-**XAMPP** será utilizado como entorno de desarrollo para la plataforma, facilitando la configuración local de Apache y MySQL esta herramienta integral permitirá a los desarrolladores replicar el entorno de producción en sus máquinas locales, asegurando una transición sin problemas del desarrollo a la implementación.
-
 **phpMyAdmin y Dbeaver** se empleará como la herramienta principal para la gestión de bases de datos MySQL. A través de su interfaz web intuitiva, phpMyAdmin facilitará la administración de bases de datos, permitiendo a los desarrolladores realizar tareas como la creación y modificación de tablas, consultas SQL y la gestión de usuarios de manera eficiente.
 
 <!-- Añadir 5. Investigar Springboot y thymeleaf. -->
@@ -82,7 +83,7 @@ Esta propuesta presenta el desarrollo de una plataforma de marketplace orientada
 5. Investigar Springboot y thymeleaf.
 6. Creación de repositorio en GitHub.
 
-## Creación de workspace en JIRA
+### Creación de workspace en JIRA
 
 ![alt text](</Docs/Sprints/IMG/uworkspace.atlassian.net_jira_software_projects_SCRUM_boards_1.png>)
 
@@ -90,14 +91,51 @@ Esta propuesta presenta el desarrollo de una plataforma de marketplace orientada
 
 ![alt text](</Docs/Sprints/IMG/uworkspace.atlassian.net_jira_software_projects_SCRUM_boards_1_backlog.png>)
 
-## Diagrama de Entidad Relación
+### Diagrama de Entidad Relación
 
 ![alt text](</Docs/Databse/TANKESV_ER.png>)
 
-## Diseño de diagramas de caso de uso
+### Diseño de diagramas de caso de uso
 
-## Diseño de wireframes
+![alt text](</Docs/Casos de uso/uso01.jpg>)
+![alt text](</Docs/Casos de uso/uso02.jpg>)
+![alt text](</Docs/Casos de uso/uso03.jpg>)
+![alt text](</Docs/Casos de uso/uso04.jpg>)
+![alt text](</Docs/Casos de uso/uso05.jpg>)
+![alt text](</Docs/Casos de uso/uso06.jpg>)
 
-## Investigar Springboot y thymeleaf
+### Diseño de wireframes
 
-## Creación de repositorio en GitHub
+![alt text](</Docs/Wireframes/w01.jpg>)
+![alt text](</Docs/Wireframes/w02.jpg>)
+
+### Investigar Springboot y thymeleaf
+
+#### Spring Boot
+
+Spring Boot es un marco de trabajo basado en Spring que facilita la creación de aplicaciones Java con mínima configuración. Algunas de sus características clave incluyen:
+
+- **Configuración automática**: Spring Boot reduce la necesidad de configuración manual gracias a su capacidad de detectar automáticamente las dependencias y configurarlas.
+- **Servidor embebido**: Puedes ejecutar aplicaciones como archivos jar que contienen un servidor embebido, como Tomcat o Jetty, lo que simplifica el despliegue.
+- **Maven y Gradle**: Integración con herramientas de construcción como Maven y Gradle para la gestión de dependencias.
+- **Facilidad de desarrollo**: Permite la creación rápida de aplicaciones mediante convenciones predefinidas y plantillas que siguen las mejores prácticas.
+- **Monitorización y métricas**: Incluye herramientas para monitorizar el rendimiento de la aplicación.
+
+#### Thymeleaf
+
+Thymeleaf es un motor de plantillas de Java que se utiliza para generar vistas HTML en aplicaciones web. Algunas de sus características principales son:
+
+- **Syntax sencilla**: Usa una sintaxis XML/HTML limpia que puede ser interpretada por navegadores y editores sin procesamiento previo.
+- **Soporte para internacionalización**: Facilita la internacionalización de aplicaciones mediante la externalización de cadenas de texto en archivos de propiedades.
+- **Expresiones y fragmentos**: Permite utilizar expresiones simples y reutilizar partes de las plantillas (fragments) para modularizar el código HTML.
+- **Integración con Spring**: Se integra de manera nativa con Spring y Spring Boot, permitiendo el uso de modelos y controladores en la generación de vistas dinámicas.
+
+#### Código de práctica
+
+![alt text](/Docs/Sprints/IMG/code01.png)
+
+### Creación de repositorio en GitHub
+
+[Link al repositorio]((https://github.com/Fernenri33/TANKESV-PROYECT))
+
+![alt text](/Docs/Sprints/IMG/github.png)
