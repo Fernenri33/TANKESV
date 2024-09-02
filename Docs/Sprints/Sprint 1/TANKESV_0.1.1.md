@@ -40,11 +40,11 @@ Estado: *pendiente de revisión*
 
 | **Rol**          | **Nombre**                              | **carnet** |
 |------------------|-----------------------------------------|------------|
-| Scrum Master     | Edwin Samuel Rivera Bercián             | RB100222  |
+| Scrum Master     | Edwin Samuel Rivera Bercián             |RB100222    |
 | Developer        | Irvin Geovanni Ramirez Leiva            |RL101022    |
-| Developer        | Walter Gabriel Hernández Hernández      | HH100122   |
+| Developer        | Walter Gabriel Hernández Hernández      |HH100122    |
 | Developer        | Harold Alexander Orellana Gonzáles      |OG100122    |
-| Product Owner    | Fernando Enrique Portillo Palacios      | PP100322   |
+| Product Owner    | Fernando Enrique Portillo Palacios      |PP100322    |
 
 ### Sobre el proyecto
 
