@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Emprendedores</title>
+    <!-- Conectar el archivo CSS ubicado en la carpeta "css" desde "html" -->
+    <link rel="stylesheet" href="../css/form.css">
+</head>
+<body>
+    <div class="container">
+
+        <h2>Registro de Emprendedores</h2>
+
+        <form id="registro-emprendedores" action="#" method="POST">
+
+            <!-- Información Personal -->
+
+            <div class="form-group"> 
+                <label for="nombre-completo">Nombre completo:</label>
+               <input type="text" id="nombre-completo" name="nombre_completo" placeholder="Fernando Peso Pluma" required>
+            </div>
+
+            <div class="form-group"> 
+                <label for="nombre-negocio"> Nombre del negocio: </label>
+                <input type="text" id="nombre-negocio" name="nombre_negocio" placeholder="Mi negocio" required>
+            </div>
+
+            <div class="form-group">
+                <label for="categorias">Selecciona las categorías de tu emprendimiento:</label>
+                <select id="categorias" name="categorias[]" multiple required>
+                    <option value="comida_bebidas">Comida y Bebidas</option>
+                    <option value="moda_accesorios">Moda y Accesorios</option>
+                    <option value="belleza_cuidado">Belleza y Cuidado Personal</option>
+                    <option value="arte_artesania">Arte y Artesanía</option>
+                    <option value="tecnologia_electronica">Tecnología y Electrónica</option>
+                    <option value="hogar_decoracion">Hogar y Decoración</option>
+                    <option value="deporte_bienestar">Deporte y Bienestar</option>
+                    <option value="servicios">Servicios</option>
+                    <option value="educacion_capacitacion">Educación y Capacitación</option>
+                    <option value="mascotas">Mascotas</option>
+                </select>
+                <small>Puedes seleccionar varias categorías manteniendo presionada la tecla Ctrl (Cmd en Mac) mientras haces clic.</small>
+            </div>
+
+
+
+            <div class="form-group">
+                <label for="email">Correo Electronico: </label>
+                <input type="email" name="email" id="email" placeholder="pesopluma@gmail.com" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="contraseña">Contraseña: </label>   
+                <input type="password" name="contraseña" id="contraseña" required>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmar-contraseña"> Confirmar contraseña: </label>
+                <input type="password" name="confirmar-contraseña" name="confirmar_contraseña" required>
+            </div>
+
+            <div class="form-group">
+                <label for="numero-telefono">Numero de telefono: </label>
+                <input type="number" name="numero-telefono" id="numero_telefono" placeholder="+503 8965 9866" required> 
+            </div>
+
+            <div class="form-group"> 
+                <label for="direccion"> Direccion del negocio: </label>
+                <input type="text" name="direccion" id="direccion" placeholder="Calle aqui no hay postes, casa 13">
+            </div>
+
+            <div class="form-group">
+                <label for="redes-sociales"> Redes sociales o pagina web: </label>
+                <input type="url" name="redes-sociales" id="redes_sociales" >
+            </div>
+
+            <div class="form-group">
+                <input type="checkbox" id="terminos" name="terminos" required>
+                <label for="terminos">Acepto los <a href="#">Términos y Condiciones</a> y la <a href="#">Política de Privacidad</a></label>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn-submit">Registrarse</button>
+            </div>
+    </div>
+</body>
+</html>
