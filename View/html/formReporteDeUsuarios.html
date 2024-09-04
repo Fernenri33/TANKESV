@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Reporte de Usuario</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        textarea,
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        textarea {
+            resize: vertical;
+        }
+        input[type="submit"] {
+            background-color: #28a745;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Formulario de Reporte de usuarios</h1>
+
+    <form action="#" method="post" enctype="multipart/form-data">
+
+        <label for="nombre_usuario">Nombre del usuario</label>
+        <input type="text" id="nombre_usuario" name="nombre_usuario" placeholder="Nombre del usuario se autocompleta" required>
+
+        <label for="motivo">Motivo del reporte</label>
+        <textarea id="motivo" name="motivo" rows="4" placeholder="Describa el motivo del reporte" required></textarea>
+
+        <label for="imagen_evidencia">Subir imagen de evidencia</label>
+        <input type="file" id="imagen_evidencia" name="imagen_evidencia" accept="image/*">
+
+        <input type="submit" value="Enviar Reporte">
+
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generación de Reportes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            display: block;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Generación de Reportes</h1>
+
+    <form action="#" method="post">
+
+        <label for="fecha_inicio">Fecha de inicio</label>
+        <input type="date" id="fecha_inicio" name="fecha_inicio" required>
+
+        <label for="fecha_fin">Fecha de fin</label>
+        <input type="date" id="fecha_fin" name="fecha_fin" required>
+
+        <label for="tipo_usuario">Tipo de usuario</label>
+        <select id="tipo_usuario" name="tipo_usuario">
+            <option value="administrador">Vendedor</option>
+            <option value="empleado">Servicios</option>
+            <option value="empleado">Crowfunding</option>
+        </select>
+
+        <label for="tipo_reporte">Tipo de reporte</label>
+        <select id="tipo_reporte" name="tipo_reporte">
+            <option value="ventas">Actividad</option>
+            <option value="financiero">Tickets de reporte</option>
+            <option value="usuarios">Financiamiento</option>
+        </select>
+
+
+
+        <input type="submit" value="Generar Reporte">
+
+    </form>
+    
+</body>
+</html>

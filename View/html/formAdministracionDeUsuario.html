@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administración de Usuario</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        input[type="submit"] {
+            background-color: #28a745;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+
+        .collapsible {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            text-align: left;
+            outline: none;
+            font-size: 16px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            display: block;
+            width: 100%;
+        }
+
+        .collapsible.active, .collapsible:hover {
+            background-color: #0056b3;
+        }
+
+        .content {
+            padding: 0 18px;
+            display: none;
+            overflow: hidden;
+            background-color: #f1f1f1;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Administración de Usuario</h1>
+
+    <form action="#" method="post">
+
+        <label for="nombre_usuario">Nombre del usuario</label>
+        <input type="text" id="nombre_usuario" name="nombre_usuario" placeholder="Nombre del usuario se autocompleta" required>
+
+        <label for="id_usuario">ID del usuario</label>
+        <input type="text" id="id_usuario" name="id_usuario" placeholder="ID del usuario se autocompleta" required>
+
+        <label for="ticket">ID del ticket</label>
+        <input type="text" id="ticket" name="ticket" placeholder="ID del ticket autocompleta" required>
+
+        <label for="estado">Estado</label>
+        <select id="estado" name="estado">
+            <option value="activo">Activo</option>
+            <option value="suspendido">Suspendido</option>
+            <option value="en_revision">En revisión</option>
+        </select>
+
+        <label for="motivos">Motivos del cambio</label>
+        <textarea id="motivos" name="motivos" rows="4" placeholder="Escribe los motivos del cambio aquí..."></textarea>
+
+        <input type="submit" value="Enviar Reporte">
+
+    </form>
+
+    <button class="collapsible">Motivo de Revisión</button>
+    <div class="content">
+        <p>Usuario con actividad sospechosa.</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const coll = document.getElementsByClassName("collapsible");
+            for (let i = 0; i < coll.length; i++) {
+                coll[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    const content = this.nextElementSibling;
+                    if (content.style.display === "block") {
+                        content.style.display = "none";
+                    } else {
+                        content.style.display = "block";
+                    }
+                });
+            }
+        });
+    </script>
+    
+</body>
+</html>
