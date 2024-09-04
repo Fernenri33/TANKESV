@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Clientes</title>
+</head>
+<body>
+    <div class="container">
+
+        <h2> Registro Clientes</h2>
+
+            <form id="Registro-Clientes" action="#" method="post">
+
+            <div class="form-group">
+                <label for="nombre-completo">Nombre completo: </label>
+                <input type="text" id="nombre-completo" name="nombre_completo" placeholder="Enrique doble P" required>
+            </div>  
+             
+            <div class="form-group">
+                <label for="email">Correo Electronico: </label>
+                <input type="email" id="email" name="email" placeholder="enriquisdobleP@gmail.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="contraseña">Contraseña: </label>
+                <input type="password" id="contraseña" name="contraseña" placeholder="************" required>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmar-contraseña">Confirmar contraseña: </label>
+                <input type="password" id="confirmar-contraseña" name="confirmar_contraseña" placeholder="************" required>
+            </div>
+
+            <div class="form-group">
+                <label for="nunero-telefono">Numero de telefono: </label>
+                <input type="number" id="numero-telefono" name="numero_telefono" placeholder="+503 7613 6894">
+            </div>
+
+            <div class="form-group">
+                <input type="checkbox" id="terminos" name="terminos" required>
+                <label for="terminos">Acepto los <a href="#">Términos y Condiciones</a> y la <a href="#">Política de Privacidad</a></label>
+            </div>
+
+            <!-- Botón de Envío -->
+            <div class="form-group">
+                <button type="submit" class="btn-submit">Registrarse</button>
+            </div>
+        </form>    
+    </div>
+
+
+
+
+
+</body>
+</html>
