@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago y Facturación</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+        h2 {
+            margin-top: 0;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .form-group button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Formulario de Pago y Facturación</h2>
+
+        <!-- Datos de la Tarjeta de Crédito -->
+        <div class="section" id="creditCardSection">
+            <h3>Pago con Tarjeta de Crédito</h3>
+            <div class="form-group">
+                <label for="cardNumber">Número de Tarjeta:</label>
+                <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" required>
+            </div>
+            <div class="form-group">
+                <label for="cardName">Nombre en la Tarjeta:</label>
+                <input type="text" id="cardName" placeholder="Nombre Apellido" required>
+            </div>
+            <div class="form-group">
+                <label for="expiryDate">Fecha de Expiración:</label>
+                <input type="text" id="expiryDate" placeholder="MM/AA" required>
+            </div>
+            <div class="form-group">
+                <label for="cvv">Código de Seguridad (CVV):</label>
+                <input type="text" id="cvv" placeholder="123" required>
+            </div>
+        </div>
+
+        <!-- Datos de PayPal -->
+        <div class="section" id="paypalSection">
+            <h3>Pago con PayPal</h3>
+            <div class="form-group">
+                <label for="paypalEmail">Correo Electrónico de PayPal:</label>
+                <input type="email" id="paypalEmail" placeholder="tu-email@paypal.com" required>
+            </div>
+        </div>
+
+        <!-- Información de Facturación -->
+        <div class="section" id="billingInfo">
+            <h3>Información de Facturación</h3>
+            <div class="form-group">
+                <label for="fullName">Nombre Completo:</label>
+                <input type="text" id="fullName" placeholder="Nombre Apellido" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Dirección:</label>
+                <input type="text" id="address" placeholder="Dirección Completa" required>
+            </div>
+            <div class="form-group">
+                <label for="city">Ciudad:</label>
+                <input type="text" id="city" placeholder="Ciudad" required>
+            </div>
+            <div class="form-group">
+                <label for="postalCode">Código Postal:</label>
+                <input type="text" id="postalCode" placeholder="Código Postal" required>
+            </div>
+            <div class="form-group">
+                <label for="country">País:</label>
+                <select id="country" required>
+                    <option value="">Selecciona tu país</option>
+                    <option value="ES">España</option>
+                    <option value="MX">México</option>
+                    <!-- Agrega más opciones de países según sea necesario -->
+                </select>
+            </div>
+        </div>
+
+        <!-- Botón de Envío -->
+        <div class="form-group">
+            <button type="submit">Realizar Pago</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperación de Contraseña</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        h2 {
+            margin-top: 0;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .form-group button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+        .message {
+            color: red;
+            margin-top: 10px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Recuperación de Contraseña</h2>
+
+        <!-- Solicitud de Recuperación -->
+        <div id="requestSection">
+            <h3>Solicitar Recuperación de Contraseña</h3>
+            <div class="form-group">
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" placeholder="Introduce tu correo electrónico" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Solicitar Recuperación</button>
+            </div>
+            <p class="message">Se ha enviado un correo electrónico con instrucciones para la recuperación.</p>
+        </div>
+
+        <!-- Cambio de Contraseña -->
+        <div id="resetSection" class="hidden">
+            <h3>Cambiar Contraseña</h3>
+            <div class="form-group">
+                <label for="token">Token de Recuperación:</label>
+                <input type="text" id="token" placeholder="Introduce el token recibido" required>
+            </div>
+            <div class="form-group">
+                <label for="newPassword">Nueva Contraseña:</label>
+                <input type="password" id="newPassword" placeholder="Introduce tu nueva contraseña" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Cambiar Contraseña</button>
+            </div>
+            <p class="message">La contraseña ha sido cambiada exitosamente.</p>
+        </div>
+    </div>
+</body>
+</html>
+
+
