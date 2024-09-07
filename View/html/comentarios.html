@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valoración de Productos y Servicios</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .product {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .product h2 {
+            color: #555;
+        }
+
+        .product p {
+            color: #777;
+        }
+
+        .rating {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .rating input {
+            display: none;
+        }
+
+        .rating label {
+            font-size: 30px;
+            color: #ccc;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+
+        .rating input:checked ~ label {
+            color: gold;
+        }
+
+        .rating label:hover,
+        .rating label:hover ~ label {
+            color: gold;
+        }
+
+        .comments-section {
+            margin-top: 20px;
+        }
+
+        .comments-section h3 {
+            color: #333;
+        }
+
+        .comments-section textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .comments-section button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .comments-section button:hover {
+            background-color: #218838;
+        }
+
+        .comment {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin-top: 10px;
+            border-left: 3px solid #28a745;
+        }
+
+        .comment p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Valoraciones de Productos y Servicios</h1>
+        
+        <!-- Información del producto -->
+        <div class="product">
+            <img src="" alt="Producto/Servicio">
+            <h2>Tacos</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi porro aliquam, ab accusantium eos quis. Id consequatur ad minima ducimus dolore sed sunt explicabo nesciunt, amet officia dicta iusto neque..</p>
+        </div>
+        
+        <!-- Valoración del producto -->
+        <div class="rating">
+            <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
+            <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+            <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+            <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+            <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+        </div>
+
+        <!-- Sección de comentarios -->
+        <div class="comments-section">
+            <h3>Deja tu comentario:</h3>
+            <textarea id="commentInput" rows="5" placeholder="Escribe tu comentario aquí..."></textarea>
+            <button onclick="addComment()">Agregar comentario</button>
+
+            <div id="commentList">
+                <!-- Aquí se agregarán los comentarios -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function addComment() {
+            var commentInput = document.getElementById("commentInput");
+            var commentList = document.getElementById("commentList");
+
+            if (commentInput.value.trim() !== "") {
+                var newComment = document.createElement("div");
+                newComment.classList.add("comment");
+                
+                var commentText = document.createElement("p");
+                commentText.innerText = commentInput.value;
+                
+                newComment.appendChild(commentText);
+                commentList.appendChild(newComment);
+
+                commentInput.value = "";
+            }
+        }
+    </script>
+</body>
+</html>
