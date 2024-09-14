@@ -43,3 +43,80 @@ body
     padding: 0;
     margin: 0;
 }
+
+.claseFormulario
+{
+    padding: 0px 100px;
+}
+
+.claseInput1
+{
+    box-sizing: border-box;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #fff;
+    background-color: transparent;
+    color: #f3f4f6;
+    resize: none;
+    font-size: 15px;
+}
+
+.claseInput1:focus
+{
+    background-color: transparent;
+    outline: none;
+    border-color: #f3f4f6;
+    box-shadow: none;
+    color: #f3f4f6;
+    font-size: 15px;
+}
+
+.claseInput1::placeholder
+{
+    color: #fff;
+}
+
+.claseInput2
+{
+    box-sizing: border-box;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #fff;
+    background-color: transparent;
+    color: #f3f4f6;
+    resize: none;
+    font-size: 15px;
+}
+
+.claseInput2:focus
+{
+    background-color: transparent;
+    outline: none;
+    border-color: #fff;
+    box-shadow: none;
+    color: #f3f4f6;
+    font-size: 15px;
+}
+
+.claseBoton
+{
+    padding: 0px 100px;
+}
+
+.claseBton
+{
+    background-color: #6a2ea0;
+    border-color: #6a2ea0;
+}
+
+.claseBton:hover
+{
+    background-color: #571f7f;
+    border-color: #571f7f;
+}
+
+.btn-primary:active
+{
+    background-color: #6a2ea0 !important;
+    border-color: #6a2ea0 !important;
+}
