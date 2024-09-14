@@ -1,0 +1,45 @@
+body
+{
+    background-color: #1f1f1f; /* Fondo oscuro */
+    color: #fff;
+
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.barraNav
+{
+    padding: 0;
+}
+
+.sectionBarraNav
+{
+    background: #0e3af6;
+    padding: 0;
+}
+
+.ulBarraNav
+{
+    padding: 0px;
+}
+
+.aBarraNav
+{
+    padding: 15px 0px;
+    color: #f3f4f6;
+    font-size: 15px;
+}
+
+.sectionH1
+{
+    padding: 15px 0px;
+    text-align: center;
+}
+
+.h1GC
+{
+    padding: 0;
+    margin: 0;
+}
