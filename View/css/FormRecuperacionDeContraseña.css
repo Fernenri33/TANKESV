@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #121212; /* Fondo oscuro */
+    color: #ffffff; /* Texto blanco */
+}
+
+.container {
+    background: #1e1e1e; /* Fondo oscuro del contenedor */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    max-width: 600px; /* Aumentado a 600px para mayor ancho */
+    width: 100%;
+    text-align: center; /* Centra el texto dentro del contenedor */
+}
+
+h2, h3 {
+    color: #ffffff; /* Texto blanco */
+    margin: 0; /* Elimina márgenes predeterminados */
+    padding: 10px 0; /* Espaciado arriba y abajo */
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #cccccc; /* Texto gris claro */
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #444444; /* Borde gris oscuro */
+    border-radius: 4px;
+    background-color: transparent; /* Fondo transparente */
+    color: #ffffff; /* Texto blanco */
+}
+
+.form-group button {
+    background-color: #6f42c1; /* Fondo morado */
+    border: 1px solid #6f42c1; /* Borde morado */
+    color: #ffffff; /* Texto blanco */
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+}
+
+.form-group button:hover {
+    background-color: #5a33a4; /* Morado más oscuro al hacer hover */
+    border-color: #5a33a4; /* Borde morado más oscuro al hacer hover */
+}
+
+.message {
+    color: #ff4444; /* Texto rojo */
+    margin-top: 10px;
+}
+
+.hidden {
+    display: none;
+}
