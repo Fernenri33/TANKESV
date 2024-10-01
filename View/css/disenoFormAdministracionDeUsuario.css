@@ -1,0 +1,14 @@
+.btn.btn-primary{
+    background-color: #0e3af6;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    display: block;
+    width: 20%;
+    font-family: 'NeueMachina', sans-serif;
+    font-size: 19px;
+    margin-top: 25px;
+}
