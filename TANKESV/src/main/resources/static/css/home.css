@@ -27,13 +27,14 @@ a.nav-link.active {
 }
 .sec1{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     margin-top: 80px;
 }
 .text{
     color: white;
     font-family: 'NeueMachina', sans-serif;
     width: 40%;
+    padding-left: 40px;
 }
 .parrafo{
     width: 100%;
