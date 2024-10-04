@@ -123,6 +123,8 @@ body {
 .section4_formulario{
     display: flex;
     justify-content: center;
+    align-items: center;
+    text-align: center;
     max-width: 650px;
     margin: 0;
     padding: 0;
@@ -296,6 +298,33 @@ body {
     transform: scale(1.1) !important;
     border: none;
     color: #222125;
+}
+
+/*CLASE PARA IMAGENES*/
+.img{
+    display: flex;
+    align-items: center;
+}
+
+/*ICONOS*/
+.star{
+    display: flex;
+    justify-content: center;
+    max-width: 20%;
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+.star:hover, .star.checked{
+    color: gold;
+}
+
+.icono{
+    max-width: 100%;
+    color: #ffffff;
+    font-size: 44px;
 }
 
 
