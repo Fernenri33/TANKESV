@@ -11,6 +11,18 @@ body {
     padding: 0 20px;
 }
 
+.body2{
+    font-family: 'NeueMachina', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0 20px;
+    background-color: #222125; /* Fondo oscuro */
+    color: #ffffff; /* Texto blanco */
+}
+
 /*DISEÑO DE BARRA DE NAVEGACION*/
 /*
 .barraNav
@@ -49,6 +61,33 @@ body {
     color:#ffffff;
     margin-top: 2%;
     margin-bottom: 0;
+}
+
+.h2 {
+    text-align: center;
+    color: #333;
+    font-family: 'NeueMachina', sans-serif;
+    color:#ffffff;
+    margin-top: 2%;
+    margin-bottom: 20px;
+}
+
+.h3 {
+    text-align: center;
+    color: #333;
+    font-family: 'NeueMachina', sans-serif;
+    color:#ffffff;
+    margin-top: 2%;
+    margin-bottom: 20px;
+}
+
+.p {
+    text-align: center;
+    color: #333;
+    font-family: 'NeueMachina', sans-serif;
+    color:#ffffff;
+    margin-top: 2%;
+    margin-bottom: 20px;
 }
 
 .formulario{
@@ -253,4 +292,8 @@ body {
 .form-control{
     color: #ffffff;
     background-color: #222125;
+}
+
+.hidden {
+    display: none;
 }
