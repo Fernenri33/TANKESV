@@ -4,41 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href="../css/disenioFormCreacionDeProyectos.css" rel="stylesheet">
+    <link href="../css/diseñoGeneral.css" rel="stylesheet">
     <title>Creación de Proyectos</title>
 </head>
+
 <body>
+    <main class="container1">
 
-    <h1>Formulario de <br><strong>Creación de Proyectos</strong></h1>
-
-    <form action="#" method="post" enctype="multipart/form-data">
-
-        <label for="nombre_proyecto">Nombre de proyecto</label>
-        <input type="text" id="nombre_proyecto" name="nombre_proyecto" placeholder="Ingrese el nombre del proyecto" required>
-
-        <label for="descripcion">Descripción</label>
-        <textarea id="descripcion" name="descripcion" rows="4" placeholder="Describa el proyecto" required></textarea>
-
-        <label for="meta_monetaria">Meta monetaria</label>
-        <input type="number" id="meta_monetaria" name="meta_monetaria" min="500" max="999999" step="50" placeholder="Ingrese la meta monetaria" required>
-
-        <label for="fecha_inicio">Fecha de inicio</label>
-        <input type="date" id="fecha_inicio" name="fecha_inicio" required>
-        
-        <label for="fecha_limite">Fecha límite</label>
-        <input type="date" id="fecha_limite" name="fecha_limite" required>
-
-        <label for="imagen_proyecto">Imagen del proyecto</label>
-
-        <div class="mb-3">
-            <!-- <label for="formFile" class="form-label">Default file input example</label> -->
-            <input class="form-control" type="file" id="formFile">
-          </div>
-
-        <input type="submit" value="Crear Proyecto">
-
-    </form>
+        <h1 class="h1">Creación de Proyecto</h1>
     
+        <form class="container formulario" action="#" method="post" enctype="multipart/form-data">
+    
+            <section class="row section1_formulario">
+                <label class="labelv1" for="nombre_proyecto">Nombre de proyecto</label>
+                <input class="inputv1" type="text" id="nombre_proyecto" name="nombre_proyecto" placeholder="Ingrese el nombre del proyecto" required>
+            </section>
+    
+            <section class="row section1_formulario">
+                <label class="labelv1" for="descripcion">Descripción</label>
+                <textarea class="textarea" id="descripcion" name="descripcion" rows="4" placeholder="Describa el proyecto" required></textarea>
+            </section>
+    
+            <section class="row section1_formulario">
+                <label class="labelv1" for="meta_monetaria">Meta monetaria</label>
+                <input class="inputv1" type="number" id="meta_monetaria" name="meta_monetaria" min="500" max="999999" step="50" placeholder="Ingrese la meta monetaria" required>
+            </section>
+    
+            <section class="row section2_formulario">
+    
+                <section class="col-sm-6 subseccion">
+                    <label class="labelv2" for="fecha_inicio">Fecha de inicio</label>
+                    <input class="inputv2" type="date" id="fecha_inicio" name="fecha_inicio" required>
+                </section>
+                
+                <section class="col-sm-6 subseccion">
+                    <label class="labelv2" for="fecha_limite">Fecha límite</label>
+                    <input class="inputv2" type="date" id="fecha_limite" name="fecha_limite" required>
+                </section>
+    
+            </section>
+    
+            <section class="row section1_formulario">
+    
+                <label class="labelv1" for="imagen_proyecto">Imagen del proyecto</label>
+                <!-- <label for="formFile" class="form-label">Default file input example</label> -->
+                <input class="form-control inputFile" type="file" id="formFile">
+    
+            </section>
+    
+            <section class="row section3_formulario">
+                <input class="submit" type="submit" value="Crear Proyecto">
+            </section>
+        </form>
+    
+    </main>  
 </body>
-
 </html>

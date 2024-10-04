@@ -5,135 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valoración de Productos y Servicios</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <style>
-        body {
-            background-color: #1f1f1f;
-            color: #ffffff;
-        }
-
-        .container {
-            margin-top: 50px;
-            background-color: #333;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        h1, h2, h3 {
-            color: #ffffff;
-            text-align: center;
-        }
-
-        .product img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-
-        .rating {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 10px;
-        }
-
-        .rating input {
-            display: none;
-        }
-
-        .rating label {
-            font-size: 30px;
-            color: #ccc;
-            cursor: pointer;
-            margin-right: 5px;
-        }
-
-        .rating input:checked ~ label {
-            color: gold;
-        }
-
-        .rating label:hover,
-        .rating label:hover ~ label {
-            color: gold;
-        }
-
-        textarea {
-            background-color: transparent;
-            color: #ffffff;
-            border: 1px solid #ffffff;
-            padding: 10px;
-            border-radius: 5px;
-        }
-
-        textarea::placeholder {
-            color: #dddddd;
-        }
-
-        button {
-            background-color: #6a2ea0;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        button:hover {
-            background-color: #571f7f;
-        }
-
-        .comment {
-            background-color: #444;
-            padding: 10px;
-            margin-top: 10px;
-            border-left: 3px solid #6a2ea0;
-            border-radius: 5px;
-        }
-
-        .comment p {
-            margin: 0;
-            color: #ffffff;
-        }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/diseñoGeneral.css" rel="stylesheet">
 </head>
+
 <body>
-    <div class="container">
-        <h1>Valoraciones de Productos y Servicios</h1>
+    <main class="container1">
 
-        <!-- Información del producto -->
-        <div class="product text-center">
-            <img src="" alt="Producto/Servicio">
-            <h2>Tacos</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi porro aliquam, ab accusantium eos quis. Id consequatur ad minima ducimus dolore sed sunt explicabo nesciunt, amet officia dicta iusto neque..</p>
-        </div>
+        <h1 class="h1">Valoraciones de Productos y Servicios</h1>
 
-        <!-- Valoración del producto -->
-        <div class="rating">
-            <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
-            <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
-            <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
-            <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
-            <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
-        </div>
-
-        <!-- Sección de comentarios -->
-        <div class="comments-section mt-4">
-            <h3>Deja tu comentario:</h3>
-            <div class="mb-3">
-                <textarea id="commentInput" rows="5" class="form-control" placeholder="Escribe tu comentario aquí..."></textarea>
+        <section class="container">
+    
+            <!-- Información del producto -->
+            <section class="container formulario">
+                <img src="" alt="Producto/Servicio">
+                <h2>Tacos</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi porro aliquam, ab accusantium eos quis. Id consequatur ad minima ducimus dolore sed sunt explicabo nesciunt, amet officia dicta iusto neque..</p>
+            </section>
+    
+            <!-- Valoración del producto -->
+            <div class="rating">
+                <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+                <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+                <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+                <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+                <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
             </div>
-            <div class="mb-3">
-                <button onclick="addComment()" class="btn">Agregar comentario</button>
+    
+            <!-- Sección de comentarios -->
+            <div class="comments-section mt-4">
+                <h3>Deja tu comentario:</h3>
+                <div class="mb-3">
+                    <textarea id="commentInput" rows="5" class="form-control" placeholder="Escribe tu comentario aquí..."></textarea>
+                </div>
+                <div class="mb-3">
+                    <button onclick="addComment()" class="btn">Agregar comentario</button>
+                </div>
+    
+                <!-- Lista de comentarios -->
+                <div id="commentList" class="mt-3">
+                    <!-- Aquí se agregarán los comentarios -->
+                </div>
             </div>
+        </section>
 
-            <!-- Lista de comentarios -->
-            <div id="commentList" class="mt-3">
-                <!-- Aquí se agregarán los comentarios -->
-            </div>
-        </div>
-    </div>
+    </main>
 
     <!-- Script para agregar comentarios -->
     <script>

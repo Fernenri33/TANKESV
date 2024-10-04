@@ -1,0 +1,256 @@
+@font-face {
+    font-family: 'NeueMachina';
+    src: url('../neue-machina/Neue_Machina/NeueMachina-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    font-family: 'NeueMachina', sans-serif;
+    background-color: #222125;
+    margin: 0;
+    padding: 0 20px;
+}
+
+/*DISEÑO DE BARRA DE NAVEGACION*/
+/*
+.barraNav
+{
+    padding: 0;
+}
+
+.sectionBarraNav
+{
+    background: #0e3af6;
+    padding: 0;
+}
+
+.ulBarraNav
+{
+    padding: 0px;
+}
+
+.aBarraNav
+{
+    padding: 15px 0px;
+    color: #f3f4f6;
+    font-size: 15px;
+}
+*/
+
+.container1{
+    padding: 0;
+    margin: 0;
+}
+
+.h1 {
+    text-align: center;
+    color: #333;
+    font-family: 'NeueMachina', sans-serif;
+    color:#ffffff;
+    margin-top: 2%;
+    margin-bottom: 0;
+}
+
+.formulario{
+    max-width: 650px;
+    margin: 0 auto;
+    background-color: #222125;
+    padding: 20px;
+    margin-top: 2%;
+}
+
+/*SECCIONES EN EL FORMULARIO PARA UN MEJOR DISEÑO Y DISTRIBUCION*/
+.section1_formulario
+{
+    max-width: 650px;
+    margin: 0;
+    padding: 0;
+}
+.section2_formulario
+{
+    max-width: 650px;
+    margin: 0;
+    padding: 0;
+}
+
+.section3_formulario{
+    display: flex;
+    justify-content: center;
+    max-width: 650px;
+    margin: 0;
+    padding: 0;
+}
+
+.section4_formulario{
+    display: flex;
+    justify-content: center;
+    max-width: 650px;
+    margin: 0;
+    padding: 0;
+}
+
+/*SUB SECCION DE SECCION 2*/
+.subseccion{
+    max-width: 650px;
+    padding: 0 1px;
+}
+
+/*LABELS V1 WIDTH 100%, V2 WIDTH 50%*/
+.labelv1 {
+    display: block;
+    margin-bottom: 8px;
+    padding: 0;
+    font-weight: bold;
+    color: #ffffff;
+}
+.labelv2 {
+    display: block;
+    max-width: 100%;
+    margin-bottom: 8px;
+    padding: 0;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+/*INPUTS WIDTH V1 100%, WIDTH V2 50%*/
+.inputv1 {
+    background-color: #222125;
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    margin-bottom: 20px;
+    border: 2px solid #ffffff;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #ffffff;
+}
+.inputv2 {
+    background-color: #222125;
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    margin-bottom: 20px;
+    border: 2px solid #ffffff;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.inputFile{
+    border: 2px solid #fff;
+    box-shadow: none;
+    margin-bottom: 20px;
+}
+
+.inputFile:focus{
+    color: #fff;
+    background-color: #222125;
+    outline: none;
+    border: 2px solid #fff;
+    box-shadow: none;
+}
+
+.inputFile:hover{
+    outline: none;
+    border: 2px solid #fff;
+    box-shadow: none;
+}
+
+.select-inputv2{
+    background-color: #222125;
+    width: 100%;
+    height: 48px;
+    padding: 10px;
+    outline: none;
+    margin-bottom: 20px;
+    border: 2px solid #ffffff;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.textarea {
+    width: 100%;
+    background-color: #222125;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    outline: none;
+    resize: none;
+}
+
+.submit {
+    background-color: #0e3af6;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    display: block;
+    width: 50%;
+    font-family: 'NeueMachina', sans-serif;
+    font-size: 19px;
+    margin-top: 25px;
+    transition: all 0.5s;
+}
+.submit:hover {
+    background-color: #ffffff;
+    transform: scale(1.1);
+    border: none;
+    color: #222125;
+}
+
+.submit2 {
+    background-color: #0e3af6;
+    color: #fff;
+    border: none;
+    padding: 10px 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    display: block;
+    width: 30%;
+    font-family: 'NeueMachina', sans-serif;
+    font-size: 19px;
+    margin: 0 5px 0 5px;
+    margin-top: 25px;
+    transition: all 0.5s;
+}
+.submit2:hover {
+    background-color: #ffffff;
+    transform: scale(1.1);
+    border: none;
+    color: #222125;
+}
+
+.btn.btn-primary{
+    background-color: #0e3af6;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    display: block;
+    width: 20%;
+    font-family: 'NeueMachina', sans-serif;
+    font-size: 19px;
+    margin-top: 25px;
+    transition: all 0.5s;
+}
+
+.btn.btn.btn-primary:hover {
+    background-color: #ffffff !important;
+    transform: scale(1.1) !important;
+    border: none;
+    color: #222125;
+}
+
+
+.form-control{
+    color: #ffffff;
+    background-color: #222125;
+}
