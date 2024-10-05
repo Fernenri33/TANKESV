@@ -70,4 +70,5 @@ public class FormsController {
     public String mostrarformReporteIncidentes(){
         return "formularios/formReportes";
     }
+    // Estos son los controladores de Formularios
 }
