@@ -7,6 +7,9 @@ import jakarta.persistence.Id;
 @Entity
 public class Usuario {
     
+    public Usuario() {
+    }
+
     @Id
     private int id_usuario;
 
@@ -21,11 +24,6 @@ public class Usuario {
 
     @Column(name="tipo")
     private String tipo;
-
-
-    public Usuario() {
-    }
-
 
     public int getId_usuario() {
         return this.id_usuario;
