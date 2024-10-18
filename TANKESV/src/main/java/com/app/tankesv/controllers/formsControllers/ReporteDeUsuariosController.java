@@ -98,7 +98,7 @@ public class ReporteDeUsuariosController {
                 redirectAttributes.addFlashAttribute("message", "Por favor sube una imagen.");
             }
     
-            return "redirect:/ReportarUsuario";
+            return "redirect:/";
         }
     }
 

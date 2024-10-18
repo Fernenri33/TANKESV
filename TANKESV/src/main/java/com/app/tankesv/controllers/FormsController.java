@@ -61,6 +61,11 @@ public class FormsController {
  * Lo mueven A UNA CLASE INDIVIDUAL dentro de la carpeta formsController, ahí manejen TODA LA LOGICA de CADA FORMULARIO
  */
 
+ @GetMapping("/ReportarUsuario")
+ public String mostrarformReporteUsuario(){
+     return "formularios/formReporteDeUsuarios";
+ }
+
     @GetMapping("/ReportarIncidente")
     public String mostrarformReporteIncidentess(){
         return "formularios/formReporteIncidentes";

@@ -210,55 +210,56 @@ LOCK TABLES `producto` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `recuoerarpassword`
+-- Table structure for table `recuperarpassword`
 --
 
-DROP TABLE IF EXISTS `recuoerarpassword`;
+DROP TABLE IF EXISTS `recuperarpassword`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `recuoerarpassword` (
+CREATE TABLE `recuperarpassword` (
   `recuperarpassword_id` int(11) NOT NULL AUTO_INCREMENT,
   `id_usuario` int(11) DEFAULT NULL,
   PRIMARY KEY (`recuperarpassword_id`),
   KEY `id_usuario` (`id_usuario`),
-  CONSTRAINT `recuoerarpassword_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`)
+  CONSTRAINT `recuperarpassword_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `recuoerarpassword`
+-- Dumping data for table `recuperarpassword`
 --
 
-LOCK TABLES `recuoerarpassword` WRITE;
-/*!40000 ALTER TABLE `recuoerarpassword` DISABLE KEYS */;
-/*!40000 ALTER TABLE `recuoerarpassword` ENABLE KEYS */;
+LOCK TABLES `recuperarpassword` WRITE;
+/*!40000 ALTER TABLE `recuperarpassword` DISABLE KEYS */;
+/*!40000 ALTER TABLE `recuperarpassword` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `reporteusuario`
+-- Table structure for table `reporte_usuario`
 --
 
-DROP TABLE IF EXISTS `reporteusuario`;
+DROP TABLE IF EXISTS `reporte_usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `reporteusuario` (
-  `id_reporteUsuario` int(11) NOT NULL AUTO_INCREMENT,
-  `id_usuario` int(11) NOT NULL,
-  `motivo` text DEFAULT NULL,
+CREATE TABLE `reporte_usuario` (
+  `id_reporte_usuario` int(11) NOT NULL AUTO_INCREMENT,
+  `motivo` varchar(255) DEFAULT NULL,
+  `id_usuario` int(11) DEFAULT NULL,
   `url_img` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id_reporteUsuario`),
-  KEY `id_usuario` (`id_usuario`),
-  CONSTRAINT `reporteusuario_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  PRIMARY KEY (`id_reporte_usuario`),
+  KEY `fk_reporte_usuario` (`id_usuario`),
+  CONSTRAINT `fk_reporte_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `reporteusuario`
+-- Dumping data for table `reporte_usuario`
 --
 
-LOCK TABLES `reporteusuario` WRITE;
-/*!40000 ALTER TABLE `reporteusuario` DISABLE KEYS */;
-/*!40000 ALTER TABLE `reporteusuario` ENABLE KEYS */;
+LOCK TABLES `reporte_usuario` WRITE;
+/*!40000 ALTER TABLE `reporte_usuario` DISABLE KEYS */;
+INSERT INTO `reporte_usuario` VALUES (10,'Comportamiento inadecuado',1,'C:\\xampp\\tomcat\\TANKESV-PROYECT\\TANKESV/uploads/ABRAZADERA CONDUIT 1 1-2 APC.webp'),(11,'Actividad sospechosa',2,'C:\\xampp\\tomcat\\TANKESV-PROYECT\\TANKESV/uploads/iconnotion.jpg');
+/*!40000 ALTER TABLE `reporte_usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -301,4 +302,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-10-17  9:50:02
+-- Dump completed on 2024-10-18 16:53:56
