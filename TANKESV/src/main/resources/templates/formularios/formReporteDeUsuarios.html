@@ -15,7 +15,7 @@
         <form class="container formulario" action="/ReportarUsuario" method="post" enctype="multipart/form-data">
             <section class="row section1_formulario">
                 <label class="labelv1" for="nombre_usuario">Nombre del usuario</label>
-                <input class="inputv1" type="text" id="nombre_usuario" name="nombre_usuario" placeholder="Nombre del usuario se autocompleta" required>
+                <input class="inputv1" type="text" id="nombre_usuario" name="nombre_usuario" th:value="${Usuario.Nombre}" readonly required>
             </section>
         
             <section class="row section1_formulario">
