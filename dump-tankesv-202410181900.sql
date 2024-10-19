@@ -210,31 +210,6 @@ LOCK TABLES `producto` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `recuoerarpassword`
---
-
-DROP TABLE IF EXISTS `recuoerarpassword`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `recuoerarpassword` (
-  `recuperarpassword_id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_usuario` int(11) DEFAULT NULL,
-  PRIMARY KEY (`recuperarpassword_id`),
-  KEY `id_usuario` (`id_usuario`),
-  CONSTRAINT `recuoerarpassword_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `recuoerarpassword`
---
-
-LOCK TABLES `recuoerarpassword` WRITE;
-/*!40000 ALTER TABLE `recuoerarpassword` DISABLE KEYS */;
-/*!40000 ALTER TABLE `recuoerarpassword` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `recuperarpassword`
 --
 
@@ -313,32 +288,6 @@ INSERT INTO `reporte_usuario` VALUES (10,'Comportamiento inadecuado',1,'C:\\xamp
 UNLOCK TABLES;
 
 --
--- Table structure for table `reporteusuario`
---
-
-DROP TABLE IF EXISTS `reporteusuario`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `reporteusuario` (
-  `id_reporteUsuario` int(11) NOT NULL AUTO_INCREMENT,
-  `id_usuario` int(11) NOT NULL,
-  `motivo` text DEFAULT NULL,
-  `url_img` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id_reporteUsuario`),
-  KEY `id_usuario` (`id_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `reporteusuario`
---
-
-LOCK TABLES `reporteusuario` WRITE;
-/*!40000 ALTER TABLE `reporteusuario` DISABLE KEYS */;
-/*!40000 ALTER TABLE `reporteusuario` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `usuario`
 --
 
@@ -378,4 +327,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-10-18 18:07:39
+-- Dump completed on 2024-10-18 19:00:22
