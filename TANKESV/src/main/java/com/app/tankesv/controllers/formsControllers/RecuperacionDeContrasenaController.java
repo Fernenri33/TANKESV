@@ -10,9 +10,9 @@ import com.app.tankesv.model.Usuario;
 import com.app.tankesv.repo.RecuperarpassworRepo;
 import com.app.tankesv.repo.UsuarioRepo;
 
-import java.util.List;
+//import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
+//import java.util.UUID;
 
 @Controller
 @RequestMapping("/RecuperarContrasena")
@@ -45,7 +45,7 @@ public class RecuperacionDeContrasenaController {
             Usuario usuarioEncontrado = usuarioOpt.get();
 
             // Generar un token único para la recuperación
-            String token = UUID.randomUUID().toString();
+            //String token = UUID.randomUUID().toString();
 
             // Crear y guardar el registro de recuperación
             Recuperarpassword recuperarpassword = new Recuperarpassword();
@@ -77,7 +77,3 @@ public class RecuperacionDeContrasenaController {
         return "formularios/Error";
     }
 }
-
-
-
- //Escribir en la base de datos el usuario con el correo que el usuario ingrese, Escribir en la tabla recuperar password,recordar usar los repositorios
