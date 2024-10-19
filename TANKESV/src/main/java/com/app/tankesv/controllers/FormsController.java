@@ -41,10 +41,7 @@ public class FormsController {
         return "formularios/FormPagoFacturacion";
     }
 
-    @GetMapping("/RecuperarContrasena")
-    public String mostrarFormRecuperacionDeContraseña(){
-        return "formularios/FormRecuperacionDeContraseña";
-    }
+    
 
     @GetMapping("/NuevoCliente")
     public String mostrarformRegistroClientes(){

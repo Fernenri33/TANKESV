@@ -13,11 +13,11 @@
         <h1 class="h1">Recuperación de Contraseña</h1>
 
         <!-- Solicitud de Recuperación -->
-        <form class="container formulario" method="post" action="#">
+        <form class="container formulario" method="post" action="/RecuperarContrasena">
             <h3 class="h3">Solicitar Recuperación de Contraseña</h3>
             <section class="row section1_formulario">
                 <label class="labelv1" for="email">Correo Electrónico:</label>
-                <input class="inputv2" type="email" id="email" placeholder="Introduce tu correo electrónico" required>
+                <input class="inputv2" type="email" name="email" id="email" placeholder="Introduce tu correo electrónico" required>
             </section>
             
             <section class="row section3_formulario">
@@ -27,7 +27,7 @@
         </form>
 
         <!-- Cambio de Contraseña -->
-        <form class="container formulario hidden" method="post" action="#">
+        <form class="container formulario hidden" method="post" action="/CambiarContrasena">
             <h3 class="h3">Cambiar Contraseña</h3>
 
             <section class="row section2_formulario hidden">
