@@ -33,20 +33,20 @@
 
         <h1 class="h1">Reporte de Incidente</h1>
 
-        <form class="container formulario" id="" action="#" method="post">
+        <form class="container formulario" id="" action="/ReportarIncidente" method="post" enctype="multipart/form-data">
                 
             <section class="row section1_formulario">
                 <label class="labelv1" for="">Lamentamos que hayas tenido un problema, ¿nos podrías comentar
                     que problema tuviste?
                 </label>
-                <textarea class="textarea" name="comentariosIncidente" id="comentariosIncidente" rows="4" placeholder="Describe detalladamente tu problema"></textarea>
+                <textarea class="textarea" name="comentariosIncidente" id="comentariosIncidente" rows="4" placeholder="Describe detalladamente tu problema" required></textarea>
             </section>
 
             <section class="row section1_formulario">
                 <label class="labelv1" for="">Para darte una solución necesitamos que nos adjuntes pruebas
                     (imagenes, recibos, documentos).
                 </label>
-                <input class="form-control inputFile" type="file" id="formFile">
+                <input class="form-control inputFile" type="file" id="formFile" name="imagen_evidencia">
             </section>
 
             <section class="row section3_formulario">
