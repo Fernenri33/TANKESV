@@ -53,9 +53,6 @@ public class ReporteDeUsuariosController {
 
         return "formularios/formReporteDeUsuarios";
     }
-
-    @Controller
-    public class ReporteUsuarioController {
     
         @PostMapping("/ReportarUsuario")
         public String procesarReporteDeUsuarios(
@@ -100,6 +97,6 @@ public class ReporteDeUsuariosController {
     
             return "redirect:/";
         }
-    }
+    
 
 }
