@@ -8,7 +8,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.app.tankesv.model.Recuperarpassword;
 import com.app.tankesv.model.Usuario;
 import com.app.tankesv.repo.RecuperarpassworRepo;
-import com.app.tankesv.repo.UsuarioRepo;
+import com.app.tankesv.repo.UsuarioRe
 
 //import java.util.List;
 import java.util.Optional;
