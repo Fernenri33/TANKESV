@@ -74,13 +74,14 @@ public class ReporteDeUsuariosController {
                     }
     
                     // Guardar archivo en el directorio
-                    String filePath = uploadDir + imagenEvidencia.getOriginalFilename();
+                    String fileName = imagenEvidencia.getOriginalFilename();
+                    String filePath = uploadDir + File.separator + fileName;
                     File file = new File(filePath);
                     imagenEvidencia.transferTo(file);
 
                     //Guardar en la base de datos
                     reporteUsuario.setMotivo(motivo);
-                    reporteUsuario.setUrlImg(filePath);
+                    reporteUsuario.setUrlImg("uploads" + File.separator + fileName);
                     
                     reporteUsuarioRepo.save(reporteUsuario);
                     
