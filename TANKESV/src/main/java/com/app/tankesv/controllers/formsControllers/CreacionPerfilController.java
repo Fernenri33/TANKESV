@@ -43,6 +43,7 @@ public String crearPerfil(@Valid @ModelAttribute Creacion_Perfil perfil,
         return "redirect:/CreacionPerfil";
     }
 
+    
     // Validar el formato del teléfono
     if (!perfil.getTelefono().matches("\\d+")) {
         redirectAttributes.addFlashAttribute("message", "El número de teléfono debe contener solo dígitos.");
@@ -52,7 +53,7 @@ public String crearPerfil(@Valid @ModelAttribute Creacion_Perfil perfil,
     // Subir y guardar la imagen de perfil
     if (!imagenPerfil.isEmpty()) {
         try {
-            String uploadDir = System.getProperty("user.dir") + "/uploads";
+            String uploadDir = "C:\\Users\\harol\\Desktop\\TANKESV-PROYECT\\TANKESV\\uploads";
             File uploadPath = new File(uploadDir);
 
             if (!uploadPath.exists()) {
