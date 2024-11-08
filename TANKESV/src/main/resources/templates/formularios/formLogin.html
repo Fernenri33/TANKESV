@@ -11,26 +11,34 @@
 <body class="body2">
 
     <main class="container2">
+
+        <!-- Mensaje de advertencia -->
+        <div th:if="${message}" class="alert alert-info" role="alert">
+            <span th:text="${message}"></span>
+        </div>
+        <br><br>
         <h1 class="h1">Login</h1>
+
         <section class="section3_formulario">
             <img class="img" src="https://via.placeholder.com/100" alt="Placeholder Image">
         </section>
 
-        <form class="container formulario2" action="#" method="post">
+        <form action="login" method="post" class="container formulario">
             <section class="row section1_formulario">
                 <label class="labelv1" for="email">Correo electrónico</label>
-                <input class="inputv1" type="email" id="email" placeholder="Correo electrónico">
+                <input class="inputv1" type="email" id="email" name="email" placeholder="Correo electrónico"> <!-- Nota: name="email" -->
             </section>
-
+        
             <section class="row section1_formulario">
                 <label class="labelv1" for="password">Contraseña</label>
-                <input class="inputv1" type="password" id="password" placeholder="Contraseña">
+                <input class="inputv1" type="password" id="password" name="password" placeholder="Contraseña"> <!-- Nota: name="password" -->
             </section>
-
+        
             <section class="row section3_formulario">
                 <input class="submit" type="submit" value="Iniciar Sesión">
             </section>
         </form>
+        
 
         <section class="row section4_formulario">
                 <a class="a" href="">Olvidé mi contraseña</a>
