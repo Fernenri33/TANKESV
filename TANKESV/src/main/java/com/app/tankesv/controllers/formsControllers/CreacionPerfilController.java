@@ -25,10 +25,10 @@ public class CreacionPerfilController {
     CreacionPerfilRepo creacionPerfilRepo;
 
     @PostMapping("/CreacionPerfil")
-public String crearPerfil(@Valid @ModelAttribute Creacion_Perfil perfil, 
-                          BindingResult result,
-                          @RequestParam("imagen_perfil") MultipartFile imagenPerfil, 
-                          RedirectAttributes redirectAttributes) {
+    public String crearPerfil(@Valid @ModelAttribute Creacion_Perfil perfil, 
+            BindingResult result,
+            @RequestParam("imagen_perfil") MultipartFile imagenPerfil, 
+            RedirectAttributes redirectAttributes) {
 
     // Validar errores de anotaciones de validación
     if (result.hasErrors()) {

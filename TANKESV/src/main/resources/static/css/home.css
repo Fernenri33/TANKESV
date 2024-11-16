@@ -4,16 +4,7 @@
     font-weight: normal;
     font-style: normal;
 }
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px); /* Para que suba un poco */
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+
 body{
     background-color: #222125;
 }
