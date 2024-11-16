@@ -12,63 +12,46 @@
 <!--Cuerpo de la pagina-->
 <body>
 
-    <!--Encabezado de la pagina-->
-    <header>
-        <!--
-        <nav class="navbar navbar-expand-lg barraNav">
-            <section class="container-fluid sectionBarraNav justify-content-center" id="navbarNav">
-                <ul class="navbar-nav ulBarraNav">
-                    <li class="nav-item liBarraNav"><a class="nav-link aBarraNav" href="">Inicio</a></li>
-                    <li class="nav-item liBarraNav"><a class="nav-link aBarraNav" href="">Ver Productos</a></li>
-                    <li class="nav-item liBarraNav"><a class="nav-link aBarraNav" href="">Crowfunding</a></li>
-                    <li class="nav-item liBarraNav"><a class="nav-link aBarraNav" href="">Trabaja con nosotros</a></li>
-                    <li class="nav-item liBarraNav"><a class="nav-link aBarraNav" href="">Conoce nuestra historia</a></li>
-                </ul>
-            </section>
-        </nav>
-        -->
-    </header>
-
     <!--Contenido principal de la pagina-->
     <main class="container1">
 
         <h1 class="h1">Gestión de Catálogos</h1>
 
-        <form class="container formulario" id="" action="#" method="post">
+        <form class="container formulario" id="" action="/GestionCatalogo" method="post" enctype="multipart/form-data">
 
             <section class="row section1_formulario">
                 <label class="labelv1" for="">Nombre producto</label>
-                <input class="inputv1" type="text" placeholder="Escriba el nombre del producto">
+                <input class="inputv1" type="text" name="nombreProducto" placeholder="Escriba el nombre del producto">
             </section>
 
             <section class="row section1_formulario">
                 <label class="labelv1" for="">Descripción del Producto</label>
-                <textarea class="textarea" id="direccion" rows="3" placeholder="Ingrese la Descripción del producto"></textarea>
+                <textarea class="textarea" name="descripcionProducto" rows="3" placeholder="Ingrese la Descripción del producto"></textarea>
             </section>
 
             <section class="row section2_formulario">
 
                 <section class="col-sm-6 subseccion">
                     <label class="labelv2" for="">Precio</label>
-                    <input class="inputv2" type="number" placeholder="Escriba el precio del producto">
+                    <input class="inputv2" type="number" name="precioProducto" placeholder="Escriba el precio del producto">
                 </section>
     
                 <section class="col-sm-6 subseccion">
                     <label class="labelv2" for="">Cantidad Disponible</label>
-                    <input class="inputv2" type="number" placeholder="Escriba la cantidad del producto">
+                    <input class="inputv2" type="number" name="cantidadProducto" placeholder="Escriba la cantidad del producto">
                 </section>
 
             </section>
 
             <section class="row section1_formulario">
                 <label class="labelv1" for="">Imagenes</label>
-                <input class="form-control inputFile" type="file" id="foto-producto">
+                <input class="form-control inputFile" type="file" name="imagenProducto">
             </section>
 
             <section class="row section4_formulario">
-                <input class="col-sm-6 submit2" type="submit" value="Agregar">
-                <input class="col-sm-6 submit2" type="submit" value="Actualizar">
-                <input class="col-sm-6 submit2" type="submit" value="Eliminar">
+                <input class="col-sm-6 submit2" type="submit" name="Agregar" value="Agregar">
+                <input class="col-sm-6 submit2" type="submit" name="Actualizar" value="Actualizar">
+                <input class="col-sm-6 submit2" type="submit" name="Eliminar" value="Eliminar">
             </section>
         </form>
     </main>
