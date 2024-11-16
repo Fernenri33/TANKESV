@@ -1,6 +1,8 @@
 package com.app.tankesv.controllers.formsControllers;
 
 import java.io.File;
+
+// Por favor revisar la funcionalidad de esta librería, si no se está usando hay que eliminarla
 import java.lang.ProcessBuilder.Redirect;
 
 import org.springframework.stereotype.Controller;
@@ -14,6 +16,7 @@ import com.app.tankesv.model.GestionCatalogo;
 @Controller
 public class GestionDeCatalogoController {
 
+    // Porfa revisar el uso de este objeto, no se está utilizando, si no se va a usar hay que quitarlo pliz
     private GestionCatalogo gCatalogo = new GestionCatalogo();
 
     @PostMapping("/GestionCatalogo")
