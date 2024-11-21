@@ -11,8 +11,9 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.app.tankesv.model.Creacion_Perfil;
-import com.app.tankesv.repo.CreacionPerfilRepo;
+import com.app.tankesv.model.Usuario;
+import com.app.tankesv.repo.UsuarioRepo;
+
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -22,14 +23,14 @@ public class LoginControllerTest {
     private MockMvc mockMvc;
 
     @MockBean
-    private CreacionPerfilRepo loginRepository;
+    private UsuarioRepo loginRepository;
 
     @Test
     public void testLoginExitoso() throws Exception {
         String email = "juan.perez@example.com";
         String password = "password123";
 
-        Creacion_Perfil perfil = new Creacion_Perfil();
+        Usuario perfil = new Usuario();
         perfil.setCorreo(email);
         perfil.setPassword(password);
 
@@ -47,7 +48,7 @@ public class LoginControllerTest {
         String email = "juan.perez@example.com";
         String password = "wrongPassword";
 
-        Creacion_Perfil perfil = new Creacion_Perfil();
+        Usuario perfil = new Usuario();
         perfil.setCorreo(email);
         perfil.setPassword("password123");
 

@@ -7,20 +7,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.app.tankesv.model.Creacion_Perfil;
-import com.app.tankesv.repo.CreacionPerfilRepo;
+import com.app.tankesv.model.Usuario;
+import com.app.tankesv.repo.UsuarioRepo;
 
 @RestController
 @RequestMapping("/login")
 public class LoginController {
 
     @Autowired
-    private CreacionPerfilRepo loginRepository;
+    private UsuarioRepo loginRepository;
+
 
     @PostMapping
     public String login(@RequestParam ("email") String correo,
                         @RequestParam("password") String password) {
-        Creacion_Perfil existingLogin = loginRepository.findByCorreo(correo);
+        Usuario existingLogin = loginRepository.findByCorreo(correo);
         if (existingLogin != null && existingLogin.getPassword().equals(password)) {
             return "Inicio de sesión exitoso";
         } else {

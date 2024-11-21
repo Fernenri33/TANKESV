@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.app.tankesv.model.Creacion_Perfil;
-import com.app.tankesv.repo.CreacionPerfilRepo;
+import com.app.tankesv.model.Usuario;
+import com.app.tankesv.repo.UsuarioRepo;
 
 import jakarta.validation.Valid;
 
@@ -21,14 +21,17 @@ import jakarta.validation.Valid;
 @Controller
 public class CreacionPerfilController {
 
+
+
     @Autowired
-    CreacionPerfilRepo creacionPerfilRepo;
+    UsuarioRepo usuariorepo;
 
     @PostMapping("/CreacionPerfil")
-    public String crearPerfil(@Valid @ModelAttribute Creacion_Perfil perfil, 
-            BindingResult result,
-            @RequestParam("imagen_perfil") MultipartFile imagenPerfil, 
-            RedirectAttributes redirectAttributes) {
+    
+public String crearPerfil(@Valid @ModelAttribute Usuario perfil, 
+                          BindingResult result,
+                          @RequestParam("imagen_perfil") MultipartFile imagenPerfil, 
+                          RedirectAttributes redirectAttributes) {
 
     // Validar errores de anotaciones de validación
     if (result.hasErrors()) {
@@ -79,10 +82,12 @@ public class CreacionPerfilController {
     }
 
     // Guardar el perfil en la base de datos
-    creacionPerfilRepo.save(perfil);
+    usuariorepo.save(perfil);
     redirectAttributes.addFlashAttribute("message", "Perfil creado exitosamente.");
     
     return "redirect:/CreacionPerfil";
 }
+
+
 
 }
