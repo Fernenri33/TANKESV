@@ -2,9 +2,6 @@ package com.app.tankesv.controllers.formsControllers;
 
 import java.io.File;
 
-// Por favor revisar la funcionalidad de esta librería, si no se está usando hay que eliminarla
-import java.lang.ProcessBuilder.Redirect;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,6 +10,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.app.tankesv.model.GestionCatalogo;
 
+/* 
 @Controller
 public class GestionDeCatalogoController {
 
@@ -44,4 +42,6 @@ public class GestionDeCatalogoController {
             return "redirect:/GestionCatalogo";
         }
     
+        
 }
+        */
