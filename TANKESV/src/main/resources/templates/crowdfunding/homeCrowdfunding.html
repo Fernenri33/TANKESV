@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/crowdfunding/generalCrowdfunding.css" rel="stylesheet">
+    <title>Home CrowdFunding</title>
+</head>
+<body>
+
+    <header class="navbar navbar-expand-lg bg-body-tertiary">
+
+        <nav>
+            <a class="aBarraNav" href="#index">TANKESV</a>
+            <a class="aBarraNav" href="/editCrowdfunding">Registrar Emprendimiento</a>
+        </nav>
+
+    </header>
+
+    <main class="body main">
+        
+        
+        <section class="row container1">
+            <section>
+                <h2 class="h2">Apoya los Emprendimientos</h2>
+            </section>
+
+
+            <section th:each="crowdfunding : ${crowdfundings}" class="col-sm-6 mx-auto product-card">
+                    <img src="https://via.placeholder.com/250x180" alt="Producto" class="img">
+
+                    <section class="product-info">
+                        <section class="brand">Emprendimiento</section>
+                        <section th:text="${crowdfunding.titulo}" class="name">Nombre Emprendimiento</section>
+                    </section>
+            </section>
+
+        </section>
+
+    </main>
+    
+</body>
+</html>

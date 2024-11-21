@@ -74,7 +74,7 @@ public class FormsController {
     }
 
     @GetMapping("/Catalogo")
-    public String mostrarformsCatalogoEmprendedor(){
+    public String mostrarformCatalogoEmprendedor(){
         return "formularios/formCatalogoEmprendedor";
     }
 }

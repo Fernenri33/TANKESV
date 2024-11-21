@@ -40,7 +40,7 @@ public class Crowdfunding {
     private Empresario empresario;
 
     @OneToMany(mappedBy = "crowdfunding", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<CrowdfundingImg> imagenes;
+    private Set<CrowdfundingImg> imagenes;    
 
     public Crowdfunding() {
     }
