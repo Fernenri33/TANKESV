@@ -2,6 +2,7 @@ package com.app.tankesv.controllers.formsControllers;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,15 +18,25 @@ public class LoginController {
     @Autowired
     private UsuarioRepo loginRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @PostMapping
-    public String login(@RequestParam ("email") String correo,
+    public String login(@RequestParam("email") String correo,
                         @RequestParam("password") String password) {
+
+        // Buscar usuario por correo electrónico
         Usuario existingLogin = loginRepository.findByCorreo(correo);
-        if (existingLogin != null && existingLogin.getPassword().equals(password)) {
-            return "Inicio de sesión exitoso";
+
+        if (existingLogin != null) {
+            // Verificar la contraseña encriptada
+            if (passwordEncoder.matches(password, existingLogin.getPassword())) {
+                return "Inicio de sesión exitoso";
+            } else {
+                return "Contraseña incorrecta";
+            }
         } else {
-            return "Credenciales incorrectas";
+            return "Usuario no encontrado";
         }
     }
 }

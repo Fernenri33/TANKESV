@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -25,6 +26,9 @@ public class CreacionPerfilController {
 
     @Autowired
     UsuarioRepo usuariorepo;
+
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
     @PostMapping("/CreacionPerfil")
     
@@ -53,6 +57,9 @@ public String crearPerfil(@Valid @ModelAttribute Usuario perfil,
         return "redirect:/CreacionPerfil";
     }
 
+    perfil.setPassword(passwordEncoder.encode(perfil.getPassword()));
+
+
     // Subir y guardar la imagen de perfil
     if (!imagenPerfil.isEmpty()) {
         try {
@@ -80,6 +87,9 @@ public String crearPerfil(@Valid @ModelAttribute Usuario perfil,
         redirectAttributes.addFlashAttribute("message", "Por favor, sube una imagen de perfil.");
         return "redirect:/CreacionPerfil";
     }
+
+    
+
 
     // Guardar el perfil en la base de datos
     usuariorepo.save(perfil);
