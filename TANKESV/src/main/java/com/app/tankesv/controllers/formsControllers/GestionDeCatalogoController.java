@@ -10,7 +10,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.app.tankesv.model.GestionCatalogo;
 
-/* 
 @Controller
 public class GestionDeCatalogoController {
 
@@ -44,4 +43,3 @@ public class GestionDeCatalogoController {
     
         
 }
-        */

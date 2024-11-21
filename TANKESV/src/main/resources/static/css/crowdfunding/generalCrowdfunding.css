@@ -8,26 +8,96 @@ label{
     color: white;
     font-size: 20px;
 }
+
+input::placeholder, textarea::placeholder{
+    color: #fff !important;
+}
+
 body {
     font-family: 'NeueMachina', sans-serif;
     background-color: #222125;
     margin: 0;
-    padding: 0 20px;
+    padding: 0px;
+}
+
+.body2{
+    font-family: 'NeueMachina', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    margin: 0;
+    padding: 0 0px;
+    background-color: #222125; /* Fondo oscuro */
+    color: #ffffff; /* Texto blanco */
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #333; /* Fondo más claro para el encabezado */
+}
+
+/*DISEÑO DE BARRA DE NAVEGACION*/
+.navbar{
+    background-color: #0e3af6 !important;
+    height: 62px;
+ }
+ /* El brand será cambiado por una imagen */
+
+.aBarraNav
+{
+    font-size: 20px;
+    margin: 0 20px;
+    height: 62px;
+    text-decoration: none;
+    color: #fff;
+        transition: transform 0.3s ease;
+}
+
+.aBarraNav:hover {
+    transform: scale(1.05);
+    color: #161518;
 }
 
 h1{
-    margin-top: 10%;
+    margin-top: 1%;
     color: white;
 }
-main{
+
+.h2{
+    display: flex;
+    justify-content: center;
+    color: #fff;
+}
+
+.a{
+    color: #fff;
+}
+.main{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
+.container1{
+    padding: 0;
+    margin: 20px 10px;
+}
+
+.container2{
+    padding: 0;
+    margin: 0;
+    background: rgb(0, 0, 0, 0.3);
+    border: none;
+    border-radius: 20px;
+}
+
 .mb-3{
     display: flex;
-    flex-direction: column;
-    
+    flex-direction: column;   
 }
 input,textarea{
     background-color: transparent !important;
@@ -43,15 +113,62 @@ form{
     width: 25%;
 }
 .mt-4{
-    width: 100%;
+    margin: 0 !important;
+    padding: 0;
     display: flex;
     justify-content: center;
+}
+
+.mt-4::placeholder{
+    color: #fff !important;
 }
 .btn.btn-primary.btn-lg{
     background-color: #0e3af6 !important;
     font-family: 'Poppins', sans-serif;
     width: 150px;
-    margin-top: 50px;
+    margin-top: 0px;
     font-family: 'NeueMachina', sans-serif;
 
+}
+
+.product-card{
+    width: 250px;
+
+    padding: 0px;
+    margin: 5px;
+
+    margin-bottom: 15px;
+
+    background-color: #161518;
+    border-radius: 10px;
+
+    text-align: center;
+
+    transition: transform 0.3s ease;
+}
+
+.product-card .img{
+    border: 0 solid;
+    border-radius: 10px;
+}
+
+.product-info{
+}
+
+.product-card .brand {
+    font-size: 14px;
+    color: #aaa;
+}
+.product-card .name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+}
+.product-card .price {
+    font-size: 18px;
+    color: #00ff00; /* Precio en verde */
+}
+
+.product-card:hover {
+    transform: scale(1.05);
 }

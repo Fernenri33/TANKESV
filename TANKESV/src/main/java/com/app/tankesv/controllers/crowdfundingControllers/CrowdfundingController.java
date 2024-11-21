@@ -13,21 +13,32 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.ui.Model;
 
 import com.app.tankesv.model.Crowdfunding;
 import com.app.tankesv.model.CrowdfundingImg;
 import com.app.tankesv.repo.CrowdfundingImgRepo;
 import com.app.tankesv.repo.CrowdfundingRepo;
+import com.app.tankesv.service.crowdfundingService.CrowdfundingService;
 
 @Controller
 public class CrowdfundingController {
 
     @Autowired CrowdfundingRepo crowdfundingRepo;
     @Autowired CrowdfundingImgRepo crowdfundingImgRepo;
+    @Autowired CrowdfundingService crowdfundingService;
 
     @GetMapping("/editCrowdfunding")
     public String mostrarCrowdfunding(){
         return "crowdfunding/editcrowdfunding";
+    }
+
+    @GetMapping("/HomeCrowdfunding")
+    public String mostrarHomeCrowdfunding(Model model){
+
+        model.addAttribute("crowdfundings", crowdfundingService.obteneCrowdfunding());
+
+        return "crowdfunding/homeCrowdfunding";
     }
 
     @PostMapping("/editCrowdfunding")
