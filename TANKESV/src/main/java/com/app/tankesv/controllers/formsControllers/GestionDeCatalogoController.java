@@ -36,10 +36,6 @@ public class GestionDeCatalogoController {
 
                 
             }
-
-
             return "redirect:/GestionCatalogo";
         }
-    
-        
 }

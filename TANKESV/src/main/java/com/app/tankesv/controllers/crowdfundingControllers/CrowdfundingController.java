@@ -1,25 +1,27 @@
 package com.app.tankesv.controllers.crowdfundingControllers;
 
-import java.io.File;
-import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.ui.Model;
 
 import com.app.tankesv.model.Crowdfunding;
-import com.app.tankesv.model.CrowdfundingImg;
 import com.app.tankesv.repo.CrowdfundingImgRepo;
 import com.app.tankesv.repo.CrowdfundingRepo;
 import com.app.tankesv.service.crowdfundingService.CrowdfundingService;
+
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 @Controller
 public class CrowdfundingController {
@@ -41,13 +43,14 @@ public class CrowdfundingController {
         return "crowdfunding/homeCrowdfunding";
     }
 
+    private static final String UPLOAD_DIR = "src/main/resources/static/uploads/";
+
     @PostMapping("/editCrowdfunding")
     public String guardarCrowdfunding(
             @RequestParam("nombreProyecto") String nombreProyecto,
             @RequestParam("descripcion") String descripcion,
             @RequestParam("metaMonetaria") BigDecimal metaMonetaria,
-            @RequestParam("formFileMultiple") MultipartFile[] files
-    ) {
+            @RequestParam("formFile") MultipartFile formFile) throws IOException {
 
         // Crear una nueva instancia de Crowdfunding y asignar valores
         Crowdfunding crowdfunding = new Crowdfunding();
@@ -56,64 +59,19 @@ public class CrowdfundingController {
         crowdfunding.setMeta(metaMonetaria);
         crowdfunding.setRecaudado(BigDecimal.ZERO);  // Asumiendo que inicia en 0
 
-        // Guardar la instancia de Crowdfunding en la base de datos
-        crowdfunding = crowdfundingRepo.save(crowdfunding);
+        // Guardar la imagen en el directorio 'uploads'
+        if (!formFile.isEmpty()) {
+            String imageName = formFile.getOriginalFilename();
+            Path imagePath = Paths.get(UPLOAD_DIR, imageName);
+            Files.copy(formFile.getInputStream(), imagePath);
 
-        // Lista para almacenar las imágenes relacionadas
-        List<CrowdfundingImg> imagenes = new ArrayList<>();
-
-        for (MultipartFile file : files) {
-            if (!file.isEmpty()) {
-                // Aquí podrías guardar el archivo en el sistema de archivos y obtener la URL o en una base de datos
-                String url = almacenarArchivo(file); // Método para almacenar el archivo y obtener la URL
-                
-                // Crear una instancia de CrowdfundingImg
-                CrowdfundingImg crowdfundingImg = new CrowdfundingImg();
-                crowdfundingImg.setUrlImg(url);
-                crowdfundingImg.setCrowdfunding(crowdfunding); // Asignar el proyecto de crowdfunding
-
-                // Guardar cada imagen en la base de datos
-                crowdfundingImgRepo.save(crowdfundingImg);
-
-                // Añadir a la lista de imágenes
-                imagenes.add(crowdfundingImg);
-            }
+            // Establecer la ruta de la imagen en el objeto Crowdfunding
+            crowdfunding.setMain_img("/uploads/" + imageName);
         }
 
-        // Asignar la lista de imágenes al proyecto y guardar nuevamente
-        crowdfunding.setImagenes(new HashSet<>(imagenes));
+        // Guardar la instancia de Crowdfunding en la base de datos
         crowdfundingRepo.save(crowdfunding);
 
         return "redirect:/editCrowdfunding"; // Redirigir o mostrar mensaje de éxito
     }
-
-    private String almacenarArchivo(MultipartFile file) {
-        // Directorio base donde guardaremos los archivos
-        String uploadDir = System.getProperty("user.dir") + "/uploads/";
-        File uploadPath = new File(uploadDir);
-
-        // Crear el directorio si no existe
-        if (!uploadPath.exists()) {
-        uploadPath.mkdirs();
-        }
-
-        // Obtener el nombre original del archivo
-        String fileName = file.getOriginalFilename();
-
-        // Definir la ruta completa del archivo donde será guardado
-        String filePath = uploadDir + File.separator + fileName;
-        File destinationFile = new File(filePath);
-
-        try {
-            // Guardar el archivo en el directorio especificado
-            file.transferTo(destinationFile);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;  // En caso de error, retorna null o maneja la excepción según necesites
-        }
-
-    // Retornar la URL del archivo guardado
-    // Puedes retornar el path relativo si necesitas acceder desde un servidor de archivos o directamente el path
-    return "/uploads/" + fileName;
-}
 }

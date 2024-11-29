@@ -39,6 +39,9 @@ public class Crowdfunding {
     @JoinColumn(name = "id_empresario")
     private Empresario empresario;
 
+    @Column(name = "main_img")
+    private String main_img;
+
     @OneToMany(mappedBy = "crowdfunding", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<CrowdfundingImg> imagenes;    
 
@@ -100,4 +103,13 @@ public class Crowdfunding {
     public void setImagenes(Set<CrowdfundingImg> imagenes) {
         this.imagenes = imagenes;
     }
+
+    public String getMain_img() {
+        return this.main_img;
+    }
+
+    public void setMain_img(String main_img) {
+        this.main_img = main_img;
+    }
+
 }

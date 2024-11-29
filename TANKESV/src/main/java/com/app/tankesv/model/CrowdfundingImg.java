@@ -29,8 +29,6 @@ public class CrowdfundingImg {
     public CrowdfundingImg() {
     }
 
-
-
     public int getIdCrowdfundingImg() {
         return this.idCrowdfundingImg;
     }
