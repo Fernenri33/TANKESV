@@ -122,14 +122,6 @@ form{
 .mt-4::placeholder{
     color: #fff !important;
 }
-.btn.btn-primary.btn-lg{
-    background-color: #0e3af6 !important;
-    font-family: 'Poppins', sans-serif;
-    width: 150px;
-    margin-top: 0px;
-    font-family: 'NeueMachina', sans-serif;
-
-}
 
 .product-card{
     width: 250px;
@@ -151,10 +143,6 @@ form{
     border: 0 solid;
     border-radius: 10px;
 }
-
-.product-info{
-}
-
 .product-card .brand {
     font-size: 14px;
     color: #aaa;
@@ -171,4 +159,9 @@ form{
 
 .product-card:hover {
     transform: scale(1.05);
+}
+
+.btn{
+    background-color: #0e3af6;
+    color: white;
 }
