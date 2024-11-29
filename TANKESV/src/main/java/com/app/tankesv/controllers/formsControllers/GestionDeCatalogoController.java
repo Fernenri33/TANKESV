@@ -43,10 +43,6 @@ public class GestionDeCatalogoController {
                 default:
                     redirectAttributes.addFlashAttribute("message", "Acción no reconocida.");
             }
-<<<<<<< HEAD
-            return "redirect:/GestionCatalogo";
-        }
-=======
         } catch (Exception e) {
             redirectAttributes.addFlashAttribute("message", "Ocurrió un error: " + e.getMessage());
             e.printStackTrace();
@@ -54,6 +50,5 @@ public class GestionDeCatalogoController {
 
         return "redirect:/GestionCatalogo";
     }
->>>>>>> 4754a09f864a3779d43231586de3068e36552efd
 }
 
