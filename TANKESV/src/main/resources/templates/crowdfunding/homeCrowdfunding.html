@@ -19,20 +19,20 @@
     </header>
 
     <main class="body main">
+
+        <section class="mainText">
+            <h1 class="h1">Apoya los Proyectos</h1>
+        </section>
         
         <section class="row container1">
-            <section>
-                <h2 class="h2">Apoya los Proyectos</h2>
-            </section>
-
-            <section th:each="crowdfunding : ${crowdfundings}" class="col-sm-6 mx-auto product-card">
+            <section th:each="crowdfunding : ${crowdfundings}" class="col-sm-6 product-card">
                 <img th:src="@{${crowdfunding.main_img}}" alt="Producto" class="img-fluid" style="max-width: 200px;">
 
                     <section class="product-info">
                         <section class="brand">Emprendimiento</section>
                         <section th:text="${crowdfunding.titulo}" class="name">Nombre Emprendimiento</section>
+                        <a href="#" type="button" class="btn">Ver más</a>
                     </section>
-                    <a href="#" type="button" class="btn">Ver más</a>
             </section>
         </section>
 
