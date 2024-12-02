@@ -1,5 +1,7 @@
 package com.app.tankesv.model;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -8,7 +10,7 @@ import jakarta.persistence.Id;
 public class GestionCatalogo {
 
     @Id
-    private int Id;
+    private int id;
 
     @Column (name = "nombreProducto")
     private String nombreProducto;
@@ -31,7 +33,7 @@ public class GestionCatalogo {
     
     //GETTERS
     public int getId() {
-        return Id;
+        return id;
     }
     public String getNombreProducto() {
         return nombreProducto;
@@ -51,7 +53,7 @@ public class GestionCatalogo {
 
     //SETTERS
     public void setId(int id) {
-        Id = id;
+        this.id = id;
     }
     public void setNombreProducto(String nombreProducto) {
         this.nombreProducto = nombreProducto;

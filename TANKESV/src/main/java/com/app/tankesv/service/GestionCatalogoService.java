@@ -2,6 +2,10 @@ package com.app.tankesv.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,21 +21,19 @@ public class GestionCatalogoService {
     @Autowired
     GestionCatalogoRepo gestionCatalogoRepo;
 
+    private String upload_files = "src/main/resources/static/uploads/";
+
     public void agregarProducto(String nombreProducto, String descripcionProducto, double precioProducto, int cantidadProducto, 
-                                MultipartFile imagenProducto, RedirectAttributes redirectAttributes) throws IOException {
+        MultipartFile imagenProducto, RedirectAttributes redirectAttributes) throws IOException {
         GestionCatalogo producto = new GestionCatalogo();
 
-        // Procesar imagen
-        if (!imagenProducto.isEmpty()) {
-            String uploadDir = System.getProperty("user.dir") + "/uploads";
-            File uploadPath = new File(uploadDir);
-            if (!uploadPath.exists()) uploadPath.mkdirs();
+        if(!imagenProducto.isEmpty()){
 
-            String filePath = uploadDir + "/" + imagenProducto.getOriginalFilename();
-            File file = new File(filePath);
-            imagenProducto.transferTo(file);
+            byte[] bytes = imagenProducto.getBytes();
+            Path path = Paths.get(upload_files + imagenProducto.getOriginalFilename());
+            Files.write(path, bytes);
 
-            producto.setImagenProducto(filePath);
+            imagenProducto.transferTo(path);
         }
 
         // Configurar datos del producto
@@ -45,14 +47,15 @@ public class GestionCatalogoService {
         redirectAttributes.addFlashAttribute("message", "Producto agregado exitosamente.");
     }
 
-    public void actualizarProducto(String nombreProducto, String descripcionProducto, 
+    public void actualizarProducto(int id, String nombreProducto, String descripcionProducto, 
     double precioProducto, int cantidadProducto, MultipartFile imagenProducto, 
     RedirectAttributes redirectAttributes) throws IOException{
         
-        GestionCatalogo producto = gestionCatalogoRepo.findByNombreProducto(nombreProducto);
+        GestionCatalogo producto = gestionCatalogoRepo.findById(id);
 
         if (producto != null) {
             // Actualizar datos del producto
+            producto.setNombreProducto(nombreProducto);
             producto.setDescripcionProducto(descripcionProducto);
             producto.setPrecioProducto(precioProducto);
             producto.setCantidadProducto(cantidadProducto);
@@ -63,8 +66,6 @@ public class GestionCatalogoService {
                 String filePath = uploadDir + "/" + imagenProducto.getOriginalFilename();
                 File file = new File(filePath);
                 imagenProducto.transferTo(file);
-
-                producto.setImagenProducto(filePath);
             }
 
             // Guardar cambios
@@ -75,9 +76,8 @@ public class GestionCatalogoService {
         }
     }
 
-    public void eliminarProducto(String nombreProducto, RedirectAttributes redirectAttributes) {
-        GestionCatalogo producto = gestionCatalogoRepo.findByNombreProducto(nombreProducto);
-
+    public void eliminarProducto(int id, RedirectAttributes redirectAttributes) {
+        GestionCatalogo producto = gestionCatalogoRepo.findById(id);
         if (producto != null) {
             gestionCatalogoRepo.delete(producto);
             redirectAttributes.addFlashAttribute("message", "Producto eliminado exitosamente.");
@@ -85,5 +85,13 @@ public class GestionCatalogoService {
             redirectAttributes.addFlashAttribute("message", "Producto no encontrado.");
         }
     }
+
+    public List<GestionCatalogo> obtenerCatalogo() {
+        List<GestionCatalogo> catalogo = gestionCatalogoRepo.findAll();
+        System.out.println(catalogo);  // Imprime los productos para verificar si se están obteniendo.
+        return catalogo;
+    }
+    
+    
 }
 

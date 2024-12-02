@@ -6,4 +6,7 @@ import com.app.tankesv.model.GestionCatalogo;
 
 public interface GestionCatalogoRepo extends JpaRepository<GestionCatalogo, Integer> {
     GestionCatalogo findByNombreProducto(String nombreProducto);
+    GestionCatalogo findById(int Id);
+
+    
 }

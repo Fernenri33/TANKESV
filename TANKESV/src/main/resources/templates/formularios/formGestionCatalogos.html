@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html xmlns="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,9 +19,18 @@
 
         <form class="container formulario" id="" action="/GestionCatalogo" method="post" enctype="multipart/form-data">
 
-            <section class="row section1_formulario">
-                <label class="labelv1" for="">Nombre producto</label>
-                <input class="inputv1" type="text" name="nombreProducto" placeholder="Escriba el nombre del producto">
+            <section class="row section2_formulario">
+
+                <section class="col-sm-6 subseccion">
+                <label class="labelv2" for="">Id producto</label>
+                <input class="inputv2" type="number" name="idProducto" placeholder="Escriba el Id del producto">
+                </section>
+
+                <section class="col-sm-6 subseccion">
+                    <label class="labelv2" for="">Nombre producto</label>
+                    <input class="inputv2" type="text" name="nombreProducto" placeholder="Escriba el nombre del producto">
+                </section>
+
             </section>
 
             <section class="row section1_formulario">
@@ -54,6 +63,30 @@
                 <button class="col-sm-6 submit2" type="submit" name="action" value="Eliminar">Eliminar</button>
             </section>
         </form>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre producto</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Imagen</th>
+                </tr>
+            </thead>
+            <tbody th:each="gestion_catalogo : ${gestion_catalogos}">
+                <tr>
+                    <td th:text="${gestion_catalogo.id}"></td>
+                    <td th:text="${gestion_catalogo.nombreProducto}"></td>
+                    <td th:text="${gestion_catalogo.descripcionProducto}"></td>
+                    <td th:text="${gestion_catalogo.precioProducto}"></td>
+                    <td th:text="${gestion_catalogo.cantidadProducto}"></td>
+                    <td th:text="${gestion_catalogo.imagenProducto}"></td>
+                </tr>
+            </tbody>
+        </table>
+        
     </main>
 
     <!--Pie de pagina-->
