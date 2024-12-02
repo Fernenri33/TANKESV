@@ -102,36 +102,12 @@
         <button onclick="location.href='gestion_catalogo.html'" style="background-color: #6200ea;">Editar catálogo</button>
     </div>
     <div class="product-grid">
-        <div class="product-card">
-            <img src="https://via.placeholder.com/250x200" alt="Producto 1">
+        <div th:each="gestion_catalogo : ${gestion_catalogos}" class="product-card">
+            <img th:src="@{${gestion_catalogo.imagenProducto}}" alt="Producto 1">
+            
             <div class="product-info">
-                <div class="brand">Cosa</div>
-                <div class="name">Si</div>
-                <div class="price">$149.00</div>
-            </div>
-        </div>
-        <div class="product-card">
-            <img src="https://via.placeholder.com/250x200" alt="Producto 2">
-            <div class="product-info">
-                <div class="brand">Peligroso</div>
-                <div class="name">Producto2</div>
-                <div class="price">$39.95</div>
-            </div>
-        </div>
-        <div class="product-card">
-            <img src="https://via.placeholder.com/250x200" alt="Producto 3">
-            <div class="product-info">
-                <div class="brand">Cornejo</div>
-                <div class="name">Producto3</div>
-                <div class="price">$54.95</div>
-            </div>
-        </div>
-        <div class="product-card">
-            <img src="https://via.placeholder.com/250x200" alt="Producto 4">
-            <div class="product-info">
-                <div class="brand">Auris</div>
-                <div class="name">CAMBIEN LOS HORARIOS</div>
-                <div class="price">$44.95</div>
+                <div th:text="${gestion_catalogo.nombreProducto}" class="brand">Nombre producto</div>
+                <div th:text="${gestion_catalogo.precioProducto}" class="price">Precio</div>
             </div>
         </div>
     </div>

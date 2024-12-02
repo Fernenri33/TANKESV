@@ -82,7 +82,9 @@
                     <td th:text="${gestion_catalogo.descripcionProducto}"></td>
                     <td th:text="${gestion_catalogo.precioProducto}"></td>
                     <td th:text="${gestion_catalogo.cantidadProducto}"></td>
-                    <td th:text="${gestion_catalogo.imagenProducto}"></td>
+                    <td>
+                        <img th:src="@{'uploads/' + ${gestion_catalogo.imagenProducto}}" width="200px" height="100px">
+                    </td> 
                 </tr>
             </tbody>
         </table>

@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,32 +22,42 @@ public class GestionCatalogoService {
     @Autowired
     GestionCatalogoRepo gestionCatalogoRepo;
 
+    //Obtener todos los datos de DB gestion_catalogo
+    public List<GestionCatalogo> obtenerCatalogo() {
+        return gestionCatalogoRepo.findAll();
+    }
+
     private String upload_files = "src/main/resources/static/uploads/";
 
     public void agregarProducto(String nombreProducto, String descripcionProducto, double precioProducto, int cantidadProducto, 
         MultipartFile imagenProducto, RedirectAttributes redirectAttributes) throws IOException {
         GestionCatalogo producto = new GestionCatalogo();
 
-        if(!imagenProducto.isEmpty()){
-
-            byte[] bytes = imagenProducto.getBytes();
-            Path path = Paths.get(upload_files + imagenProducto.getOriginalFilename());
-            Files.write(path, bytes);
-
-            imagenProducto.transferTo(path);
+        if (!imagenProducto.isEmpty()) {
+            // Crear directorio si no existe
+            File directorio = new File(upload_files);
+            if (!directorio.exists()) {
+                directorio.mkdirs();
+            }
+    
+            // Generar nombre único para la imagen
+            String fileName = UUID.randomUUID().toString() + "_" + imagenProducto.getOriginalFilename();
+            Path path = Paths.get(upload_files + fileName);
+            Files.write(path, imagenProducto.getBytes());
+    
+            // Guardar la ruta de la imagen en el producto
+            producto.setImagenProducto(fileName);
         }
-
+    
         // Configurar datos del producto
         producto.setNombreProducto(nombreProducto);
         producto.setDescripcionProducto(descripcionProducto);
         producto.setPrecioProducto(precioProducto);
         producto.setCantidadProducto(cantidadProducto);
-
+    
         // Guardar en el repositorio
         gestionCatalogoRepo.save(producto);
-        redirectAttributes.addFlashAttribute("message", "Producto agregado exitosamente.");
     }
-
     public void actualizarProducto(int id, String nombreProducto, String descripcionProducto, 
     double precioProducto, int cantidadProducto, MultipartFile imagenProducto, 
     RedirectAttributes redirectAttributes) throws IOException{
@@ -60,12 +71,20 @@ public class GestionCatalogoService {
             producto.setPrecioProducto(precioProducto);
             producto.setCantidadProducto(cantidadProducto);
 
-            // Procesar nueva imagen si existe
             if (!imagenProducto.isEmpty()) {
-                String uploadDir = System.getProperty("user.dir") + "/uploads";
-                String filePath = uploadDir + "/" + imagenProducto.getOriginalFilename();
-                File file = new File(filePath);
-                imagenProducto.transferTo(file);
+                // Crear directorio si no existe
+                File directorio = new File(upload_files);
+                if (!directorio.exists()) {
+                    directorio.mkdirs();
+                }
+        
+                // Generar nombre único para la imagen
+                String fileName = UUID.randomUUID().toString() + "_" + imagenProducto.getOriginalFilename();
+                Path path = Paths.get(upload_files + fileName);
+                Files.write(path, imagenProducto.getBytes());
+        
+                // Guardar la ruta de la imagen en el producto
+                producto.setImagenProducto(fileName);
             }
 
             // Guardar cambios
@@ -85,13 +104,5 @@ public class GestionCatalogoService {
             redirectAttributes.addFlashAttribute("message", "Producto no encontrado.");
         }
     }
-
-    public List<GestionCatalogo> obtenerCatalogo() {
-        List<GestionCatalogo> catalogo = gestionCatalogoRepo.findAll();
-        System.out.println(catalogo);  // Imprime los productos para verificar si se están obteniendo.
-        return catalogo;
-    }
-    
-    
 }
 
