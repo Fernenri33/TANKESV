@@ -369,3 +369,16 @@ body {
 .hidden {
     display: none;
 }
+
+.miTabla th, .miTabla td{
+    border: 2px solid #ffffff;
+    color: #fff;
+    background-color: #222125;
+
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.miTabla{
+    cursor: pointer;
+}

@@ -23,12 +23,12 @@
 
                 <section class="col-sm-6 subseccion">
                 <label class="labelv2" for="">Id producto</label>
-                <input class="inputv2" type="number" name="idProducto" placeholder="Escriba el Id del producto">
+                <input class="inputv2" type="number" name="idProducto" placeholder="Escriba el Id del producto" autocomplete="off">
                 </section>
 
                 <section class="col-sm-6 subseccion">
                     <label class="labelv2" for="">Nombre producto</label>
-                    <input class="inputv2" type="text" name="nombreProducto" placeholder="Escriba el nombre del producto">
+                    <input class="inputv2" type="text" name="nombreProducto" placeholder="Escriba el nombre del producto" autocomplete="off">
                 </section>
 
             </section>
@@ -64,30 +64,32 @@
             </section>
         </form>
 
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Nombre producto</th>
-                    <th scope="col">Descripción</th>
-                    <th scope="col">Precio</th>
-                    <th scope="col">Cantidad</th>
-                    <th scope="col">Imagen</th>
-                </tr>
-            </thead>
-            <tbody th:each="gestion_catalogo : ${gestion_catalogos}">
-                <tr>
-                    <td th:text="${gestion_catalogo.id}"></td>
-                    <td th:text="${gestion_catalogo.nombreProducto}"></td>
-                    <td th:text="${gestion_catalogo.descripcionProducto}"></td>
-                    <td th:text="${gestion_catalogo.precioProducto}"></td>
-                    <td th:text="${gestion_catalogo.cantidadProducto}"></td>
-                    <td>
-                        <img th:src="@{'uploads/' + ${gestion_catalogo.imagenProducto}}" width="200px" height="100px">
-                    </td> 
-                </tr>
-            </tbody>
-        </table>
+        <section class="container">
+            <table class="miTabla table" onclick="true">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nombre producto</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Imagen</th>
+                    </tr>
+                </thead>
+                <tbody th:each="gestion_catalogo : ${gestion_catalogos}">
+                    <tr>
+                        <td th:text="${gestion_catalogo.id}"></td>
+                        <td th:text="${gestion_catalogo.nombreProducto}"></td>
+                        <td th:text="${gestion_catalogo.descripcionProducto}"></td>
+                        <td th:text="${gestion_catalogo.precioProducto}"></td>
+                        <td th:text="${gestion_catalogo.cantidadProducto}"></td>
+                        <td>
+                            <img th:src="@{'uploads/' + ${gestion_catalogo.imagenProducto}}" width="175px" height="75px" alt="imagen">
+                        </td> 
+                    </tr>
+                </tbody>
+            </table>
+        </section>
         
     </main>
 
