@@ -22,32 +22,20 @@ public class GestionCatalogoService {
     @Autowired
     GestionCatalogoRepo gestionCatalogoRepo;
 
-    //Obtener todos los datos de DB gestion_catalogo
-    public List<GestionCatalogo> obtenerCatalogo() {
-        return gestionCatalogoRepo.findAll();
-    }
-
     private String upload_files = "src/main/resources/static/uploads/";
 
     public void agregarProducto(String nombreProducto, String descripcionProducto, double precioProducto, int cantidadProducto, 
         MultipartFile imagenProducto, RedirectAttributes redirectAttributes) throws IOException {
+
         GestionCatalogo producto = new GestionCatalogo();
 
-        if (!imagenProducto.isEmpty()) {
-            // Crear directorio si no existe
-            File directorio = new File(upload_files);
-            if (!directorio.exists()) {
-                directorio.mkdirs();
-            }
-    
-            // Generar nombre único para la imagen
-            String fileName = UUID.randomUUID().toString() + "_" + imagenProducto.getOriginalFilename();
-            Path path = Paths.get(upload_files + fileName);
-            Files.write(path, imagenProducto.getBytes());
-    
-            // Guardar la ruta de la imagen en el producto
-            producto.setImagenProducto(fileName);
-        }
+        // Generar nombre único para la imagen
+        String fileName = UUID.randomUUID().toString() + "_" + imagenProducto.getOriginalFilename();
+        Path path = Paths.get(upload_files + fileName);
+        Files.write(path, imagenProducto.getBytes());
+
+        // Guardar la ruta de la imagen en el producto
+        producto.setImagenProducto(fileName);
     
         // Configurar datos del producto
         producto.setNombreProducto(nombreProducto);
@@ -58,6 +46,7 @@ public class GestionCatalogoService {
         // Guardar en el repositorio
         gestionCatalogoRepo.save(producto);
     }
+
     public void actualizarProducto(int id, String nombreProducto, String descripcionProducto, 
     double precioProducto, int cantidadProducto, MultipartFile imagenProducto, 
     RedirectAttributes redirectAttributes) throws IOException{
@@ -70,22 +59,14 @@ public class GestionCatalogoService {
             producto.setDescripcionProducto(descripcionProducto);
             producto.setPrecioProducto(precioProducto);
             producto.setCantidadProducto(cantidadProducto);
-
-            if (!imagenProducto.isEmpty()) {
-                // Crear directorio si no existe
-                File directorio = new File(upload_files);
-                if (!directorio.exists()) {
-                    directorio.mkdirs();
-                }
         
-                // Generar nombre único para la imagen
-                String fileName = UUID.randomUUID().toString() + "_" + imagenProducto.getOriginalFilename();
-                Path path = Paths.get(upload_files + fileName);
-                Files.write(path, imagenProducto.getBytes());
+            // Generar nombre único para la imagen
+            String fileName = UUID.randomUUID().toString() + "_" + imagenProducto.getOriginalFilename();
+            Path path = Paths.get(upload_files + fileName);
+            Files.write(path, imagenProducto.getBytes());
         
-                // Guardar la ruta de la imagen en el producto
-                producto.setImagenProducto(fileName);
-            }
+            // Guardar la ruta de la imagen en el producto
+            producto.setImagenProducto(fileName);
 
             // Guardar cambios
             gestionCatalogoRepo.save(producto);
@@ -103,6 +84,11 @@ public class GestionCatalogoService {
         } else {
             redirectAttributes.addFlashAttribute("message", "Producto no encontrado.");
         }
+    }
+
+    //Obtener todos los datos de DB gestion_catalogo
+    public List<GestionCatalogo> obtenerCatalogo() {
+        return gestionCatalogoRepo.findAll();
     }
 }
 
