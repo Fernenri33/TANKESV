@@ -10,35 +10,42 @@
 </head>
 
 <!--Cuerpo de la pagina-->
-<body>
+<body class="body3">
+    <header class="sectionBarraNav">
+        <a class="aLink">TANKESV</a>
+        <section>
+            <a class="btn btn-primary1" href="/AgregarCatalogo">Agregar</a>
+            <a class="btn btn-primary1" href="/ListaCatalogo">Catalogo</a>
+        </section>
+    </header>
 
     <!--Contenido principal de la pagina-->
     <main class="container1">
 
-        <h1 class="h1">Gestión de Catálogos</h1>
+        <h1 class="h1">Editar Producto</h1>
 
         <form class="container formulario" th:action="@{'/EditarCatalogo/' + ${gestion_catalogo.id}}" method="post" enctype="multipart/form-data">
 
             <section class="row section1_formulario">
                     <label class="labelv1" for="">Nombre producto</label>
-                    <input class="inputv1" th:value="${gestion_catalogo.nombreProducto}" type="text" name="nombreProducto" placeholder="Escriba el nombre del producto" autocomplete="off">
+                    <input class="inputv1" th:value="${gestion_catalogo.nombreProducto}" type="text" name="nombreProducto" placeholder="Escriba el nombre del producto" autocomplete="off" required>
             </section>
 
             <section class="row section1_formulario">
                 <label class="labelv1" for="">Descripción del Producto</label>
-                <textarea class="textarea" th:value="${gestion_catalogo.descripcionProducto}" name="descripcionProducto" rows="3" placeholder="Ingrese la Descripción del producto"></textarea>
+                <textarea class="textarea" th:value="${gestion_catalogo.descripcionProducto}" name="descripcionProducto" rows="3" placeholder="Ingrese la Descripción del producto" required></textarea>
             </section>
 
             <section class="row section2_formulario">
 
                 <section class="col-sm-6 subseccion">
                     <label class="labelv2" for="">Precio</label>
-                    <input class="inputv2" th:value="${gestion_catalogo.precioProducto}" type="number" name="precioProducto" placeholder="Escriba el precio del producto">
+                    <input class="inputv2" th:value="${gestion_catalogo.precioProducto}" type="number" name="precioProducto" placeholder="Escriba el precio del producto" required>
                 </section>
     
                 <section class="col-sm-6 subseccion">
                     <label class="labelv2" for="">Cantidad Disponible</label>
-                    <input class="inputv2" th:value="${gestion_catalogo.cantidadProducto}" type="number" name="cantidadProducto" placeholder="Escriba la cantidad del producto">
+                    <input class="inputv2" th:value="${gestion_catalogo.cantidadProducto}" type="number" name="cantidadProducto" placeholder="Escriba la cantidad del producto" required>
                 </section>
 
             </section>

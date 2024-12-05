@@ -23,8 +23,15 @@ body {
     color: #ffffff; /* Texto blanco */
 }
 
+.body3{
+    font-family: 'NeueMachina', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #222125; /* Fondo oscuro */
+    color: #ffffff; /* Texto blanco */
+}
+
 /*DISEÑO DE BARRA DE NAVEGACION*/
-/*
 .barraNav
 {
     padding: 0;
@@ -32,8 +39,12 @@ body {
 
 .sectionBarraNav
 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background: #0e3af6;
-    padding: 0;
+    padding: 0 20px;
+    height: 56px;
 }
 
 .ulBarraNav
@@ -47,7 +58,6 @@ body {
     color: #f3f4f6;
     font-size: 15px;
 }
-*/
 
 .container1{
     padding: 0;
@@ -67,7 +77,7 @@ body {
     color: #333;
     font-family: 'NeueMachina', sans-serif;
     color:#ffffff;
-    margin-top: 2%;
+    margin-top: 1%;
     margin-bottom: 0;
 }
 
@@ -119,7 +129,7 @@ body {
     margin: 0 auto;
     background-color: #222125;
     padding: 20px;
-    margin-top: 2%;
+    margin-top: 0%;
 }
 
 .formulario2{
@@ -331,6 +341,27 @@ body {
     color: #222125;
 }
 
+.btn.btn-primary1{
+    background-color: #fff;
+    color: #0e3af6;
+    padding: 10px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 10px;
+    width: auto;
+    font-family: 'NeueMachina', sans-serif;
+    font-size: 15px;
+    transition: all 0.5s;
+}
+
+.btn.btn.btn-primary1:hover {
+    background-color: #ffffff !important;
+    transform: scale(0.9) !important;
+    border: none;
+    color: #222125;
+}
 /*CLASE PARA IMAGENES*/
 .img{
     display: flex;
@@ -381,4 +412,15 @@ body {
 
 .miTabla{
     cursor: pointer;
+}
+
+.aLink{
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+    margin: 0 10px
+}
+
+.espacio{
+    margin-top: 1%;
 }
