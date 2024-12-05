@@ -33,7 +33,7 @@ public class CrowdfundingController {
         return "crowdfunding/editcrowdfunding";
     }
 
-    @GetMapping("/HomeCrowdfunding")
+    @GetMapping("/crowdfundings")
     public String mostrarHomeCrowdfunding(Model model){
 
         model.addAttribute("crowdfundings", crowdfundingService.obteneCrowdfunding());

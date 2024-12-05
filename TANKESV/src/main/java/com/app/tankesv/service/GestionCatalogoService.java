@@ -1,6 +1,5 @@
 package com.app.tankesv.service;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -23,7 +22,13 @@ public class GestionCatalogoService {
     GestionCatalogoRepo gestionCatalogoRepo;
 
     private String upload_files = "src/main/resources/static/uploads/";
+    
+    // Obtener todos los datos de DB gestion_catalogo
+    public List<GestionCatalogo> obtenerCatalogo() {
+        return gestionCatalogoRepo.findAll();
+    }
 
+    // Agregar al catalogo un producto
     public void agregarProducto(String nombreProducto, String descripcionProducto, double precioProducto, int cantidadProducto, 
         MultipartFile imagenProducto, RedirectAttributes redirectAttributes) throws IOException {
 
@@ -47,48 +52,37 @@ public class GestionCatalogoService {
         gestionCatalogoRepo.save(producto);
     }
 
-    public void actualizarProducto(int id, String nombreProducto, String descripcionProducto, 
-    double precioProducto, int cantidadProducto, MultipartFile imagenProducto, 
-    RedirectAttributes redirectAttributes) throws IOException{
-        
-        GestionCatalogo producto = gestionCatalogoRepo.findById(id);
+    // Obtener producto por el ID
+    public GestionCatalogo obtenerProductoID(Long id){
+        return gestionCatalogoRepo.findById(id).orElse(null);
+    }
 
-        if (producto != null) {
-            // Actualizar datos del producto
+    // Editar o actualizar producto
+    public void editarProducto(Long id, String nombreProducto, String descripcionProducto, double precioProducto, int cantidadProducto,
+    MultipartFile imagenProducto, RedirectAttributes redirectAttributes) throws IOException{
+
+        GestionCatalogo producto = obtenerProductoID(id);
+        if(producto != null){
             producto.setNombreProducto(nombreProducto);
             producto.setDescripcionProducto(descripcionProducto);
             producto.setPrecioProducto(precioProducto);
             producto.setCantidadProducto(cantidadProducto);
-        
-            // Generar nombre único para la imagen
-            String fileName = UUID.randomUUID().toString() + "_" + imagenProducto.getOriginalFilename();
-            Path path = Paths.get(upload_files + fileName);
-            Files.write(path, imagenProducto.getBytes());
-        
-            // Guardar la ruta de la imagen en el producto
-            producto.setImagenProducto(fileName);
 
-            // Guardar cambios
+            if (!imagenProducto.isEmpty()) {
+                String fileName = UUID.randomUUID().toString() + "_" + imagenProducto.getOriginalFilename();
+                Path path = Paths.get(upload_files + fileName);
+                Files.write(path, imagenProducto.getBytes());
+                producto.setImagenProducto(fileName);
+            }
+
             gestionCatalogoRepo.save(producto);
-            redirectAttributes.addFlashAttribute("message", "Producto actualizado exitosamente.");
-        } else {
-            redirectAttributes.addFlashAttribute("message", "Producto no encontrado.");
         }
     }
 
-    public void eliminarProducto(int id, RedirectAttributes redirectAttributes) {
-        GestionCatalogo producto = gestionCatalogoRepo.findById(id);
-        if (producto != null) {
+    // Eliminar producto por su ID
+    public void eliminarProducto(Long id, RedirectAttributes redirectAttributes) {
+        GestionCatalogo producto = obtenerProductoID(id);
             gestionCatalogoRepo.delete(producto);
-            redirectAttributes.addFlashAttribute("message", "Producto eliminado exitosamente.");
-        } else {
-            redirectAttributes.addFlashAttribute("message", "Producto no encontrado.");
-        }
-    }
-
-    //Obtener todos los datos de DB gestion_catalogo
-    public List<GestionCatalogo> obtenerCatalogo() {
-        return gestionCatalogoRepo.findAll();
     }
 }
 
