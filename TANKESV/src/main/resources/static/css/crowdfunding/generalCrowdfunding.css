@@ -56,10 +56,6 @@ body {
     color: #fff;
         transition: transform 0.3s ease;
 }
-.aBarraNav:hover {
-    transform: scale(1.05);
-    color: #161518;
-}
 .h1{
     display: flex;
     justify-content: center;
@@ -114,7 +110,7 @@ form{
     justify-content: center;
 }
 .product-card{
-    margin-top: 50px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -127,7 +123,6 @@ form{
 .product-info{
     display: flex;
     flex-direction: column;
-    width: 80%;
 }
 .img-fluid{
     margin-bottom: 10px;
@@ -141,17 +136,26 @@ form{
     font-weight: bold;
     color: #fff;
 }
-.product-card:hover {
-    transform: scale(1.05);
-}
-
 .btn{
     background-color: #0e3af6;
     color: white;
     margin-top: 20px;
     margin-bottom: 20px;
 }
+.btn:hover{
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 
-@media (max-width: 1204px) {
-    
+@media (max-width: 978px) {
+    .row.container1{
+        flex-direction: column;
+        align-content: center;
+    }
+    .product-card{
+        margin-top: 10px;
+        width: 100%;
+    }
 }

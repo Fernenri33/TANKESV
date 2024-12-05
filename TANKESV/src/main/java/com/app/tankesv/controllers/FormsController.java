@@ -31,7 +31,7 @@ public class FormsController {
         return "formularios/formGestionCatalogos";
     }
 
-    @GetMapping("/Login")
+    @GetMapping("/login")
     public String mostrarLogin(){
         return "formularios/formLogin";
     }
