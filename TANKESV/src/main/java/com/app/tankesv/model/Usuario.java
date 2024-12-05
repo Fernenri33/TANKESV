@@ -24,9 +24,14 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_usuario;
 
+    
+    @Column(name = "role")
+    private String role;
+
     @Column(name="nombre", length = 100)
     @NotBlank(message = "El nombre completo es obligatorio")
     private String nombre;
+    
 
     @Email(message = "Debe ingresar un correo electrónico válido")
     @NotBlank(message = "El correo electrónico es obligatorio")
@@ -61,6 +66,14 @@ public class Usuario {
 
     public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public String getTelefono() {

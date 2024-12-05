@@ -17,9 +17,17 @@ public class UsuarioController {
     private UsuarioRepo repo;
 
     @GetMapping("/usuario")
-    public String usuario (Model model){
+    public String usuario(Model model) {
         List<Usuario> usuarios = repo.findAll();
         model.addAttribute("usuarios", usuarios);
         return "usuario";
     }
+
+    @GetMapping("/homeUsuario")
+    public String mostrarLogin(){
+        return "/usuarioLogin";
+    }
+
+   
+
 }
