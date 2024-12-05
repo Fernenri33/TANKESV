@@ -3,8 +3,6 @@ package com.app.tankesv.model;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Date;
-import java.time.LocalDate;
-import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "pago")
