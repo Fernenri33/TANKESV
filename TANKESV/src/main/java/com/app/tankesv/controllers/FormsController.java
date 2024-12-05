@@ -26,7 +26,7 @@ public class FormsController {
         return "formularios/formCreacionDeProyectos";
     }
 
-    @GetMapping("/Login")
+    @GetMapping("/login")
     public String mostrarLogin(){
         return "formularios/formLogin";
     }
@@ -67,6 +67,12 @@ public class FormsController {
     public String mostrarformReporteIncidentes(){
         return "formularios/formReportes";
     }
+
+    @GetMapping("/PerfilEmprendedor")
+    public String PerfilEmprendedor(){
+        return "formularios/formPerfilDeEmprendedor";
+    }
+
 
     @GetMapping("/Catalogo")
     public String mostrarformCatalogoEmprendedor(){

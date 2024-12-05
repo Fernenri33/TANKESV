@@ -3,68 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pago y Facturación</title>
-    <!-- Enlace a Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href="../css/diseñoGeneral.css" rel="stylesheet">  
+    <title>Formulario de Aportación y Facturación</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/diseñoGeneral.css" rel="stylesheet">
 </head>
 <body>
     <main class="container1">
-        <h2 class="h1">Formulario de Pago y Facturación</h2>
+        <h1 class="h1">Formulario de Aportación y Facturación</h1>
 
-        <!-- Datos de la Tarjeta de Crédito -->
-        <form class="container formulario" method="post" action="#">
-            <h3 class="h3">Pago con Tarjeta de Crédito</h3>
+        <form class="container formulario" method="post" action="/pagos">
+            <!-- Campo oculto para id_crowdfunding -->
+            <input type="hidden" name="crowdfunding.idCrowdfunding" value="1">
 
+            <!-- Campo para el monto -->
+            <section class="row section2_formulario">
+                <section class="col-sm-6 subseccion">
+                    <label class="labelv2" for="monto">Monto:</label>
+                    <input class="inputv2" type="number" id="monto" name="monto" value="100" step="0.01" placeholder="Ingrese el monto" required>
+                </section>
+            </section>
+
+            <!-- Campo para la fecha de pago -->
+            <section class="row section2_formulario">
+                <section class="col-sm-6 subseccion">
+                    <label class="labelv2" for="fechaPago">Fecha de Pago:</label>
+                    <input class="inputv2" type="date" id="fechaPago" name="fechaPago" required>
+                </section>
+            </section>
+
+            <!-- Campo para el nombre del donador -->
+            <section class="row section2_formulario">
+                <section class="col-sm-6 subseccion">
+                    <label class="labelv2" for="nombreDonador">Nombre del Donador:</label>
+                    <input class="inputv2" type="text" id="nombreDonador" name="nombreDonador" placeholder="Nombre Completo" required>
+                </section>
+            </section>
+
+            <!-- Sección Pago con Tarjeta de Crédito -->
+            <h3 class="h3 mt-4">Pago con Tarjeta de Crédito</h3>
             <section class="row section2_formulario">
                 <section class="col-sm-6 subseccion">
                     <label class="labelv2" for="cardNumber">Número de Tarjeta:</label>
-                    <input class="inputv2" type="number" id="cardNumber" placeholder="1234 5678 9012 3456" required>
+                    <input class="inputv2" type="number" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" required>
                 </section>
 
                 <section class="col-sm-6 subseccion">
-                    <label class="labelv1" for="cardName">Nombre en la Tarjeta:</label>
-                    <input class="inputv2" type="text" id="cardName" placeholder="Nombre Apellido" required>
+                    <label class="labelv2" for="cardName">Nombre en la Tarjeta:</label>
+                    <input class="inputv2" type="text" id="cardName" name="cardName" placeholder="Nombre Apellido" required>
                 </section>
             </section>
 
             <section class="row section2_formulario">
                 <section class="col-sm-6 subseccion">
                     <label class="labelv2" for="expiryDate">Fecha de Expiración:</label>
-                    <input class="inputv2" type="text" id="expiryDate" placeholder="MM/AA" required>
+                    <input class="inputv2" type="text" id="expiryDate" name="expiryDate" placeholder="MM/AA" required>
                 </section>
+
                 <section class="col-sm-6 subseccion">
                     <label class="labelv2" for="cvv">Código de Seguridad (CVV):</label>
-                    <input class="inputv2" type="number" id="cvv" placeholder="123" required>
+                    <input class="inputv2" type="number" id="cvv" name="cvv" placeholder="123" required>
                 </section>
             </section>
 
-            <h3 class="h3">Información de Facturación</h3>
-    
-            <section class="row section1_formulario">
-                <label class="labelv1" for="fullName">Nombre Completo:</label>
-                <input class="inputv1" type="text" id="fullName" placeholder="Nombre Apellido" required>
-            </section>
-    
-            <section class="row section1_formulario">
-                <label class="labelv1" for="address">Dirección:</label>
-                <input class="inputv1" type="text" id="address" placeholder="Dirección Completa" required>
-            </section>
-
-            <section class="row section3_formulario">
+            <!-- Información de Facturación -->
+            <h3 class="h3 mt-4">Información de Facturación</h3>
+            <section class="row section2_formulario">
                 <section class="col-sm-6 subseccion">
-                    <label class="labelv2" for="city">Ciudad:</label>
-                    <input class="inputv2" type="text" id="city" placeholder="Ciudad" required>
+                    <label class="labelv2" for="fullName">Nombre Completo:</label>
+                    <input class="inputv2" type="text" id="fullName" name="fullName" placeholder="Nombre Apellido" required>
                 </section>
 
                 <section class="col-sm-6 subseccion">
-                    <label class="labelv2" for="postalCode">Código Postal:</label>
-                    <input class="inputv2" type="number" id="postalCode" placeholder="Código Postal" required>
+                    <label class="labelv2" for="address">Dirección:</label>
+                    <input class="inputv2" type="text" id="address" name="address" placeholder="Dirección Completa" required>
                 </section>
+            </section>
 
+            <section class="row section2_formulario">
                 <section class="col-sm-6 subseccion">
                     <label class="labelv2" for="country">País:</label>
-                    <select class="select-inputv2" id="country" required>
+                    <select class="select-inputv2" id="country" name="country" required>
                         <option value="">Selecciona tu país</option>
                         <option value="ES">El Salvador</option>
                         <option value="Other">Otro</option>
@@ -72,10 +91,14 @@
                 </section>
             </section>
 
-            <section class="row section3_formulario">
+            <!-- Botón Final -->
+            <section class="section3_formulario">
                 <input class="submit" type="submit" value="Realizar Pago">
             </section>
         </form>
     </main>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
 </html>
+
