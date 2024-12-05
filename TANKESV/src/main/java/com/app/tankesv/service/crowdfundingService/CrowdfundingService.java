@@ -14,8 +14,7 @@ public class CrowdfundingService {
     @Autowired
     private CrowdfundingRepo crowdfundingRepo;
 
-    public List<Crowdfunding>obteneCrowdfunding()
-    {
+    public List<Crowdfunding>obteneCrowdfunding(){
         return crowdfundingRepo.findAll();
     }
     

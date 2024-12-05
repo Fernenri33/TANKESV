@@ -2,13 +2,16 @@ package com.app.tankesv.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class GestionCatalogo {
 
     @Id
-    private int Id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column (name = "nombreProducto")
     private String nombreProducto;
@@ -30,8 +33,8 @@ public class GestionCatalogo {
     }
     
     //GETTERS
-    public int getId() {
-        return Id;
+    public Long getId() {
+        return id;
     }
     public String getNombreProducto() {
         return nombreProducto;
@@ -50,8 +53,8 @@ public class GestionCatalogo {
     }
 
     //SETTERS
-    public void setId(int id) {
-        Id = id;
+    public void setId(Long id) {
+        this.id = id;
     }
     public void setNombreProducto(String nombreProducto) {
         this.nombreProducto = nombreProducto;
