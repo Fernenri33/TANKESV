@@ -31,13 +31,6 @@ public class FormsController {
         return "formularios/formLogin";
     }
 
-    @GetMapping("/Pago")
-    public String mostrarFormPagoFacturacion(){
-        return "formularios/FormPagoFacturacion";
-    }
-
-    
-
     @GetMapping("/NuevoCliente")
     public String mostrarformRegistroClientes(){
         return "formularios/formRegistroClientes";

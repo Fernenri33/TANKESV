@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${crowdfunding.titulo}"></title>
+</head>
+<body>
+    <h1 th:text="${crowdfunding.titulo}"></h1>
+    <img th:src="@{${crowdfunding.main_img}}" alt="Imagen del Emprendimiento">
+    <p th:text="${crowdfunding.descripcion}"></p>
+    <p>Meta Monetaria: <span th:text="${crowdfunding.meta}"></span></p>
+    <p>Recaudado: <span th:text="${crowdfunding.recaudado}"></span></p>
+    <a th:href="@{'/Pago/' + ${crowdfunding.idCrowdfunding}}" type="button" class="btn">Aportar</a>
+</body>
+</html>

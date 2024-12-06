@@ -12,7 +12,7 @@
     <main class="container1">
         <h1 class="h1">Formulario de Aportación y Facturación</h1>
 
-        <form class="container formulario" method="post" action="/pagos">
+        <form class="container formulario" method="post" th:action="@{/Pago/{id}(id=${id})}">
             <!-- Campo oculto para id_crowdfunding -->
             <input type="hidden" name="crowdfunding.idCrowdfunding" value="1">
 

@@ -1,31 +1,56 @@
 package com.app.tankesv.controllers.formsControllers;
 
+import com.app.tankesv.model.Crowdfunding;
 import com.app.tankesv.model.Pago;
+import com.app.tankesv.repo.CrowdfundingRepo;
 import com.app.tankesv.repo.PagoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
-@RequestMapping("pagos") // Ruta base para este controlador
+@Controller
 public class PagoController {
 
     @Autowired
     private PagoRepository pagoRepository;
 
-    // Crear un nuevo pago con datos enviados desde un formulario
-    @PostMapping
-    public ResponseEntity<String> createPago(@ModelAttribute Pago pago) {
-        // Validar que el objeto Crowdfunding no sea nulo
-        if (pago.getCrowdfunding() == null || pago.getCrowdfunding().getIdCrowdfunding() <= 0) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error: El crowdfunding asociado no es válido.");
+    @Autowired
+    private CrowdfundingRepo crowdfundingRepo;
+
+    @GetMapping("/Pago/{id}")
+    public String mostrarFormPagoFacturacion(@PathVariable Long id, Model model){
+
+        Integer integerId = Math.toIntExact(id);
+
+        Crowdfunding crowdfunding = crowdfundingRepo.findById(integerId)
+        .orElse(null);
+
+        if (crowdfunding == null) {
+            // Si no existe, agregar un mensaje de error al modelo y redirigir a una página de error
+            model.addAttribute("error", "El crowdfunding con ID " + id + " no existe.");
+            return "error/error"; // Nombre de la vista de error
         }
 
-        // Guardar el pago en la base de datos
+        model.addAttribute("id", id);
+        return "formularios/FormPagoFacturacion";
+    }
+
+    // Crear un nuevo pago con datos enviados desde un formulario
+    @PostMapping("/Pago/{id}")
+    public ResponseEntity<String> createPago(@ModelAttribute Pago pago,@PathVariable Long id) {
+
+        Integer integerId = Math.toIntExact(id);
+       
+        Crowdfunding crowdfunding = crowdfundingRepo.findById(integerId)
+            .orElseThrow(() -> new IllegalArgumentException("Crowdfunding no encontrado con el ID: " + integerId));
+
+        pago.setCrowdfunding(crowdfunding);
+
         pagoRepository.save(pago);
 
-        // Devolver un mensaje personalizado
         return ResponseEntity.status(HttpStatus.CREATED).body("Pago realizado con éxito.");
     }
 }

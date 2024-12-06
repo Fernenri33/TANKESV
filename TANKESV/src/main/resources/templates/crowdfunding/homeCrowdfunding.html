@@ -31,7 +31,7 @@
                     <section class="product-info">
                         <section class="brand">Emprendimiento</section>
                         <section th:text="${crowdfunding.titulo}" class="name">Nombre Emprendimiento</section>
-                        <a href="#" type="button" class="btn">Ver más</a>
+                        <a th:href="@{'/crowdfundingDetalle/' + ${crowdfunding.idCrowdfunding}}" type="button" class="btn">Ver más</a>
                     </section>
             </section>
         </section>
