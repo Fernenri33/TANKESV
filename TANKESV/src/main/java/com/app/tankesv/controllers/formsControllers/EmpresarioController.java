@@ -26,7 +26,9 @@ public class EmpresarioController {
         String email = principal.getName();
 
         Usuario usuario = usuarioRepo.findByCorreo(email).orElseThrow(() -> new IllegalStateException("El usuario no está registrado como empresario"));
-        
+        usuario.setRole("EMPRESARIO");
+
+        usuarioRepo.save(usuario);
         empresario.setUsuario(usuario);
 
         empresarioRepository.save(empresario);
