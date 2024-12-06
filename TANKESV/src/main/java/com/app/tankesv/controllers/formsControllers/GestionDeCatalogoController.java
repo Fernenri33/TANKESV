@@ -29,7 +29,7 @@ public class GestionDeCatalogoController {
         return "gestionDeCatalogos/formAgregarCatalogo";
     }
 
-    // Mostrar Formulario Listado del Catalogo
+    // Mostrar Formulario Listado del Catalogox
     @GetMapping("/ListaCatalogo")
     public String listaCatalogo(Model model){
         model.addAttribute("gestion_catalogos", gestionCatalogoService.obtenerCatalogo());

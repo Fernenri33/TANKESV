@@ -26,7 +26,7 @@ public class FormsController {
         return "formularios/formCreacionDeProyectos";
     }
 
-    @GetMapping("/login")
+    @GetMapping("/Login")
     public String mostrarLogin(){
         return "formularios/formLogin";
     }

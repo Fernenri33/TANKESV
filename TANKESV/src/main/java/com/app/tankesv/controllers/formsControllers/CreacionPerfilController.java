@@ -32,12 +32,9 @@ public class CreacionPerfilController {
 
     @Autowired
     PasswordEncoder passwordEncoder;
-
-
-    
     
         // Directorio para guardar las imágenes
-        private static final String UPLOAD_DIR = "tankesv/src/main/resources/static/uploads/";
+        private static final String UPLOAD_DIR = "src/main/resources/static/uploads/";
     
         @PostMapping("/CreacionPerfil")
         public String crearPerfil(@Valid @ModelAttribute Usuario perfil, 
