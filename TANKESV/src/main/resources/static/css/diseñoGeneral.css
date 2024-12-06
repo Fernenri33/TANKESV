@@ -12,7 +12,7 @@ body {
 }
 
 .body2{
-    font-family: 'NeueMachina', sans-serif;
+    font-family: 'NeueMachina', sans-serif !important;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -310,6 +310,7 @@ body {
     margin: 0 5px 0 5px;
     margin-top: 25px;
     transition: all 0.5s;
+    text-decoration: none;
 }
 .submit2:hover {
     background-color: #ffffff;
@@ -359,6 +360,28 @@ body {
 .btn.btn.btn-primary1:hover {
     background-color: #ffffff !important;
     transform: scale(0.9) !important;
+    border: none;
+    color: #222125;
+}
+
+.btn.btn-primary2{
+    background-color: #0e3af6;
+    color: #ffffff;
+    padding: 10px;
+    margin: 0px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 10px;
+    width: auto;
+    font-family: 'NeueMachina', sans-serif;
+    font-size: 15px;
+    transition: all 0.5s;
+}
+
+.btn.btn.btn-primary2:hover {
+    background-color: #ffffff !important;
+    transform: scale(1.1) !important;
     border: none;
     color: #222125;
 }
