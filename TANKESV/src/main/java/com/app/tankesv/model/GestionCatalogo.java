@@ -28,6 +28,8 @@ public class GestionCatalogo {
     @Column (name = "imagenProducto")
     private String imagenProducto;
 
+    //Agrgar columna idEmpresario
+
     //CONSTRUCTOR
     public GestionCatalogo() {
     }

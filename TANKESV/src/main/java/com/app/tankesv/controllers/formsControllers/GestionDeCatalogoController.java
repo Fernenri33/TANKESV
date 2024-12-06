@@ -1,6 +1,7 @@
 package com.app.tankesv.controllers.formsControllers;
 
 import java.io.IOException;
+import java.security.Principal;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.app.tankesv.model.Empresario;
+import com.app.tankesv.repo.EmpresarioRepository;
 import com.app.tankesv.repo.GestionCatalogoRepo;
 import com.app.tankesv.service.GestionCatalogoService;
 
@@ -22,6 +25,9 @@ public class GestionDeCatalogoController {
     GestionCatalogoService gestionCatalogoService;
     @Autowired
     GestionCatalogoRepo gestionCatalogoRepo;
+    @Autowired 
+    EmpresarioRepository empresarioRepository;
+
 
     // Mostrar Formulario Agregar Catalogo
     @GetMapping("/AgregarCatalogo")
@@ -40,7 +46,15 @@ public class GestionDeCatalogoController {
     @PostMapping("/AgregarCatalogo")
     public String agregarCatalogo(@RequestParam String nombreProducto, @RequestParam String descripcionProducto,
                                       @RequestParam double precioProducto, @RequestParam int cantidadProducto,
-                                      @RequestParam MultipartFile imagenProducto, RedirectAttributes redirectAttributes) throws IOException {
+                                      @RequestParam MultipartFile imagenProducto, RedirectAttributes redirectAttributes,
+                                      Principal principal) throws IOException {
+
+        String email = principal.getName();
+
+        Empresario empresario = empresarioRepository.findByUsuarioCorreo(email)
+            .orElseThrow(() -> new IllegalStateException("El usuario no está registrado como empresario"));
+
+        
         gestionCatalogoService.agregarProducto(nombreProducto, descripcionProducto, precioProducto, cantidadProducto, imagenProducto, redirectAttributes);
         return "redirect:/ListaCatalogo";
     }
