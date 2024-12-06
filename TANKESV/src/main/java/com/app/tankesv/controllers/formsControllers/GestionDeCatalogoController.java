@@ -46,16 +46,14 @@ public class GestionDeCatalogoController {
     @PostMapping("/AgregarCatalogo")
     public String agregarCatalogo(@RequestParam String nombreProducto, @RequestParam String descripcionProducto,
                                       @RequestParam double precioProducto, @RequestParam int cantidadProducto,
-                                      @RequestParam MultipartFile imagenProducto, RedirectAttributes redirectAttributes,
-                                      Principal principal) throws IOException {
+                                      @RequestParam MultipartFile imagenProducto, Principal principal, RedirectAttributes redirectAttributes) throws IOException {
 
         String email = principal.getName();
 
         Empresario empresario = empresarioRepository.findByUsuarioCorreo(email)
-            .orElseThrow(() -> new IllegalStateException("El usuario no está registrado como empresario"));
-
+        .orElseThrow(() -> new IllegalStateException("El usuario no está registrado como empresario"));
         
-        gestionCatalogoService.agregarProducto(nombreProducto, descripcionProducto, precioProducto, cantidadProducto, imagenProducto, redirectAttributes);
+        gestionCatalogoService.agregarProducto(nombreProducto, descripcionProducto, precioProducto, cantidadProducto, imagenProducto, empresario, redirectAttributes);
         return "redirect:/ListaCatalogo";
     }
 

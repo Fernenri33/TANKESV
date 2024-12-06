@@ -2,9 +2,12 @@ package com.app.tankesv.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class GestionCatalogo {
@@ -28,7 +31,9 @@ public class GestionCatalogo {
     @Column (name = "imagenProducto")
     private String imagenProducto;
 
-    //Agrgar columna idEmpresario
+    @ManyToOne(fetch = FetchType.LAZY, optional=false)
+    @JoinColumn(name = "id_empresario", referencedColumnName = "id_empresario", nullable = false)
+    private Empresario empresario;
 
     //CONSTRUCTOR
     public GestionCatalogo() {
@@ -53,6 +58,9 @@ public class GestionCatalogo {
     public String getImagenProducto() {
         return imagenProducto;
     }
+    public Empresario getId_Empresario(){
+        return this.empresario;
+    }
 
     //SETTERS
     public void setId(Long id) {
@@ -72,5 +80,8 @@ public class GestionCatalogo {
     }
     public void setImagenProducto(String imagenProducto) {
         this.imagenProducto = imagenProducto;
+    }
+    public void setId_Empresario(Empresario empresario){
+        this.empresario = empresario;
     }
 }
