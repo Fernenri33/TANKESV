@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 06-12-2024 a las 01:21:03
+-- Servidor: localhost
+-- Tiempo de generación: 06-12-2024 a las 02:45:38
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -123,7 +123,12 @@ CREATE TABLE `crowfunding` (
 
 CREATE TABLE `empresario` (
   `id_empresario` int(11) NOT NULL,
-  `id_usuario` int(11) DEFAULT NULL
+  `nombre_emprendimiento` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `num_telefono` varchar(255) NOT NULL,
+  `facebook_link` varchar(255) NOT NULL,
+  `industria` varchar(255) NOT NULL,
+  `wsp_link` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -296,7 +301,8 @@ INSERT INTO `usuario` (`id_usuario`, `nombre`, `correo`, `password`, `confirm_pa
 (15, 'fernando', 'fernando@gmail.com', '$2a$10$Zg2332fDEZ7TkfVjscbGkutzcu7yl0K2lEnH11D29RoretDrrsv3y', '12345678', '79609096', '2006-07-11', 'El Salvador\r\nSan Salvador', 'C:\\Users\\harol\\Desktop\\TANKESV-PROYECT\\TANKESV\\uploads/WhatsApp Image 2024-11-20 at 4.11.40 PM.jpeg', NULL, NULL, 'ROLE_USER'),
 (16, 'raul', 'raul@gmail.com', '$2a$10$Wezhz4atezyrENn8VW/QIucu0rks/aY0KAs2QscU4ijAXB16SoqBC', '12345678', '79609096', '2014-02-27', 'El Salvador\r\nSan Salvador', 'C:\\Users\\harol\\Desktop\\TANKESV-PROYECT\\TANKESV\\uploads/WhatsApp Image 2024-11-20 at 4.11.40 PM.jpeg', NULL, NULL, 'ROLE_USER'),
 (34, 'walter', 'walterwww@gmail.com', '$2a$10$UaK0DEyLWhilXMuh4A/br.qbr.0bTrqCMvEXN6otbFi4bvEcT5/k6', '11111111', '79609096', '2025-01-01', 'El Salvador\r\nSan Salvador', 'uploads/73f8d44c-a11b-4c79-ac1e-dc2097de4808_Anotación 2024-05-20 170917.png', NULL, NULL, 'ROLE_USER'),
-(35, 'cielo', 'cielo2@gmail.com', '$2a$10$ESgpqIgFI9SFHWt0bD.vbuSysyBEgzE8aPQXGl1RzxB7KWtH5CRie', '12345678', '79609096', '2024-12-24', 'El Salvador\r\nSan Salvador', 'uploads/e5f1c7fb-4c91-4873-b292-f0ab8850d0ab_Anotación 2024-05-20 170917.png', NULL, NULL, 'ROLE_USER');
+(35, 'cielo', 'cielo2@gmail.com', '$2a$10$ESgpqIgFI9SFHWt0bD.vbuSysyBEgzE8aPQXGl1RzxB7KWtH5CRie', '12345678', '79609096', '2024-12-24', 'El Salvador\r\nSan Salvador', 'uploads/e5f1c7fb-4c91-4873-b292-f0ab8850d0ab_Anotación 2024-05-20 170917.png', NULL, NULL, 'ROLE_USER'),
+(36, 'SamuelBercian', 'edwin@gmail.com', '$2a$10$nYNQGg6WpDl.XvqUDT8yCOI50SSZlMgMRcIrp1L8SoyWsoI8YZtGK', '12345678', '12345678', '2024-12-04', '111111111110000110111101111111', 'uploads/82e2a852-b9b0-4bc8-8d2c-63e01d671af1_Wallpaper8.png', NULL, NULL, 'ROLE_USER');
 
 --
 -- Índices para tablas volcadas
@@ -348,8 +354,7 @@ ALTER TABLE `crowfunding`
 -- Indices de la tabla `empresario`
 --
 ALTER TABLE `empresario`
-  ADD PRIMARY KEY (`id_empresario`),
-  ADD KEY `id_usuario` (`id_usuario`);
+  ADD PRIMARY KEY (`id_empresario`);
 
 --
 -- Indices de la tabla `gestion_catalogo`
@@ -462,7 +467,7 @@ ALTER TABLE `empresario`
 -- AUTO_INCREMENT de la tabla `gestion_catalogo`
 --
 ALTER TABLE `gestion_catalogo`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `login`
@@ -510,7 +515,7 @@ ALTER TABLE `reporte_usuario`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- Restricciones para tablas volcadas
@@ -546,12 +551,6 @@ ALTER TABLE `crowdfunding_img`
 --
 ALTER TABLE `crowfunding`
   ADD CONSTRAINT `crowfunding_ibfk_1` FOREIGN KEY (`id_empresario`) REFERENCES `empresario` (`id_empresario`) ON DELETE CASCADE;
-
---
--- Filtros para la tabla `empresario`
---
-ALTER TABLE `empresario`
-  ADD CONSTRAINT `empresario_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `pago`
