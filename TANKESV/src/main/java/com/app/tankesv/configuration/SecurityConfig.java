@@ -21,31 +21,45 @@ public class SecurityConfig {
     private CustomUserDetailsService userDetailsService;
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-            .csrf(csrf -> csrf.disable()) // Deshabilitar CSRF temporalmente
-            .authorizeHttpRequests(auth -> auth
-                .requestMatchers(
-                    "/login", "/CreacionPerfil", "/", "/css/**", "/js/**", "/img/**", "/uploads/**", "/neue-machina/**", "/crowdfundings/**"
-                ).permitAll()
-                .anyRequest().authenticated() // Requiere autenticación para todas las demás rutas
-            )
-            .formLogin(form -> form
-                .loginPage("/Login") // Página personalizada de login
-                .loginProcessingUrl("/login") 
-                .defaultSuccessUrl("/homeUsuario", true) // Redirigir tras login exitoso
-                .failureUrl("/Login?error=true") // Redirigir si hay error en el login
-                .usernameParameter("email")
-                .permitAll()
-            )
-            .logout(logout -> logout
-                .logoutUrl("/logout")
-                .logoutSuccessUrl("/Login")
-                .permitAll()
-            );
+public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    http
+        .csrf(csrf -> csrf.disable())
+        .authorizeHttpRequests(auth -> auth
+            // Permitir acceso sin autenticación
+            .requestMatchers("/", "/css/**", "/js/**", "/img/**","/neue-machina/**").permitAll()
+            
+            // Acceso exclusivo para ROLE_EMPRESARIO
+            .requestMatchers(
+                "/editCrowdfunding", 
+                "/AgregarCatalogo", 
+                "/ListaCatalogo", 
+                "/EditarCatalogo/{id}", 
+                "/EliminarCatalogo/{id}"
+            ).hasRole("EMPRESARIO")
 
-        return http.build();
-    }
+            // Acceso exclusivo para ROLE_USUARIO
+            .requestMatchers("/Pago/{id}").hasRole("USER")
+            
+            // Otras rutas requieren autenticación
+            .anyRequest().authenticated()
+        )
+        .formLogin(form -> form
+            .loginPage("/Login")
+            .loginProcessingUrl("/login")
+            .defaultSuccessUrl("/homeUsuario", true)
+            .failureUrl("/Login?error=true")
+            .usernameParameter("email")
+            .permitAll()
+        )
+        .logout(logout -> logout
+            .logoutUrl("/logout")
+            .logoutSuccessUrl("/Login")
+            .permitAll()
+        );
+
+    return http.build();
+}
+
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -53,7 +67,7 @@ public class SecurityConfig {
     }
 
     @Bean
-public AuthenticationManager authManager(HttpSecurity http) throws Exception {
+    public AuthenticationManager authManager(HttpSecurity http) throws Exception {
     AuthenticationManagerBuilder authenticationManagerBuilder = 
         http.getSharedObject(AuthenticationManagerBuilder.class);
 

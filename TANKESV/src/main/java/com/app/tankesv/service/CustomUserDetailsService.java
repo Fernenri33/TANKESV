@@ -10,25 +10,37 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.app.tankesv.model.Usuario;
+import com.app.tankesv.repo.EmpresarioRepository;
 import com.app.tankesv.repo.UsuarioRepo;
+import com.app.tankesv.security.CustomUserDetails;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
     @Autowired
-    private UsuarioRepo usuariorepo;
+    private UsuarioRepo usuarioRepo;
+
+    @Autowired
+    private EmpresarioRepository empresarioRepo;
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        System.out.println("imprimir login");
-        Usuario usuario = usuariorepo.findByCorreo(email) 
+        System.out.println("Inicio de sesión detectado para: " + email);
+        
+        // Busca al usuario en la base de datos
+        Usuario usuario = usuarioRepo.findByCorreo(email)
             .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado"));
 
-        return new org.springframework.security.core.userdetails.User(
+        // Verifica si el usuario pertenece a la tabla empresario
+        boolean isEmpresario = empresarioRepo.existsByUsuario_IdUsuario(usuario.getId_usuario());
+
+        // Crea y retorna un objeto CustomUserDetails con la información necesaria
+        return new CustomUserDetails(
             usuario.getCorreo(),
             usuario.getPassword(),
-            List.of(new SimpleGrantedAuthority("ROLE_" + usuario.getRole().toUpperCase()))
-            
+            List.of(new SimpleGrantedAuthority("ROLE_" + usuario.getRole().toUpperCase())),
+            usuario.getNombre(),
+            isEmpresario
         );
     }
 }

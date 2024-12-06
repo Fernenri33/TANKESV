@@ -24,7 +24,8 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_usuario;
+    @Column(name = "id_usuario")
+    private int idUsuario;
 
     
     @Column(name = "role")
@@ -34,7 +35,6 @@ public class Usuario {
     @NotBlank(message = "El nombre completo es obligatorio")
     private String nombre;
     
-
     @Email(message = "Debe ingresar un correo electrónico válido")
     @NotBlank(message = "El correo electrónico es obligatorio")
     @Column(name="correo", length = 100)
@@ -61,6 +61,8 @@ public class Usuario {
 
     @Column(name = "foto_perfil")
     private String fotoPerfil; 
+
+//---------------------------------------------------------------------
 
     public String getConfirmPassword() {
         return confirmPassword;
@@ -112,11 +114,11 @@ public class Usuario {
 
 
     public int getId_usuario() {
-        return this.id_usuario;
+        return this.idUsuario;
     }
 
     public void setId_usuario(int id_usuario) {
-        this.id_usuario = id_usuario;
+        this.idUsuario = id_usuario;
     }
 
     public String getNombre() {
@@ -143,11 +145,9 @@ public class Usuario {
         this.password = password;
     }
 
-    
-
     @Override
     public String toString() {
-        return "Usuario [id_usuario=" + id_usuario + ", nombre=" + nombre + ", correo=" + correo + ", password="
+        return "Usuario [id_usuario=" + idUsuario + ", nombre=" + nombre + ", correo=" + correo + ", password="
                 + password + ", confirmPassword=" + confirmPassword + ", telefono=" + telefono + ", fechaNacimiento="
                 + fechaNacimiento + ", direccion=" + direccion + ", fotoPerfil=" + fotoPerfil 
                 + ", getConfirmPassword()=" + getConfirmPassword() + ", getTelefono()=" + getTelefono()

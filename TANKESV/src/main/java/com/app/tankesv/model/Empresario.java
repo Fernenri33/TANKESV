@@ -29,6 +29,11 @@ public class Empresario {
     @Column(name = "industria", nullable = false)
     private String industria;
 
+    // Relación con la entidad Usuario
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario", nullable = false)
+    private Usuario usuario;
+
     // Getters y Setters
     public int getIdEmpresario() {
         return idEmpresario;
@@ -40,7 +45,7 @@ public class Empresario {
 
     public String getNombreEmprendimiento() {
         return nombreEmprendimiento;
-    }
+    } 
 
     public void setNombreEmprendimiento(String nombreEmprendimiento) {
         this.nombreEmprendimiento = nombreEmprendimiento;
@@ -85,4 +90,13 @@ public class Empresario {
     public void setIndustria(String industria) {
         this.industria = industria;
     }
+
+    public Usuario getUsuario() {
+        return this.usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
 }
