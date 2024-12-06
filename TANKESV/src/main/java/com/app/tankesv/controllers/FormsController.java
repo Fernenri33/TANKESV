@@ -68,9 +68,9 @@ public class FormsController {
         return "formularios/formReportes";
     }
 
-    @GetMapping("/PerfilEmprendedor")
+    @GetMapping("/Empresario")
     public String PerfilEmprendedor(){
-        return "formularios/formPerfilDeEmprendedor";
+        return "formularios/formEmpresario";
     }
 
 
