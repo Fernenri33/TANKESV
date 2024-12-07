@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.app.tankesv.model.Empresario;
 import com.app.tankesv.model.GestionCatalogo;
 import com.app.tankesv.repo.GestionCatalogoRepo;
 
@@ -23,14 +24,14 @@ public class GestionCatalogoService {
 
     private String upload_files = "src/main/resources/static/uploads/";
     
-    // Obtener todos los datos de DB gestion_catalogo
-    public List<GestionCatalogo> obtenerCatalogo() {
-        return gestionCatalogoRepo.findAll();
+    //Obtener todos los datos de DB gestion_catalogo
+    public List<GestionCatalogo> obtenerCatalogo(Empresario empresario) {
+        return gestionCatalogoRepo.findByEmpresario(empresario);
     }
 
     // Agregar al catalogo un producto
     public void agregarProducto(String nombreProducto, String descripcionProducto, double precioProducto, int cantidadProducto, 
-        MultipartFile imagenProducto, RedirectAttributes redirectAttributes) throws IOException {
+        MultipartFile imagenProducto, Empresario empresario, RedirectAttributes redirectAttributes) throws IOException {
 
         GestionCatalogo producto = new GestionCatalogo();
 
@@ -47,6 +48,7 @@ public class GestionCatalogoService {
         producto.setDescripcionProducto(descripcionProducto);
         producto.setPrecioProducto(precioProducto);
         producto.setCantidadProducto(cantidadProducto);
+        producto.setId_Empresario(empresario);
     
         // Guardar en el repositorio
         gestionCatalogoRepo.save(producto);
