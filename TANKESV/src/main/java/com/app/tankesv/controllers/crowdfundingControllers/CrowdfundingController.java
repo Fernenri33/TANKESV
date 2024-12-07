@@ -32,9 +32,9 @@ public class CrowdfundingController {
     @Autowired UsuarioRepo usuarioRepo;
     @Autowired EmpresarioRepository empresarioRepository;
 
-    @GetMapping("/editCrowdfunding")
+    @GetMapping("/AgregarCrowdfunding")
     public String mostrarCrowdfunding(){
-        return "crowdfunding/editcrowdfunding";
+        return "crowdfunding/newCrowdfunding";
     }
 
     @GetMapping("/crowdfundings")
@@ -47,7 +47,7 @@ public class CrowdfundingController {
 
     private static final String UPLOAD_DIR = "src/main/resources/static/uploads/";
 
-    @PostMapping("/editCrowdfunding")
+    @PostMapping("/AgregarCrowdfunding")
     public String guardarCrowdfunding(
             @RequestParam("nombreProyecto") String nombreProyecto,
             @RequestParam("descripcion") String descripcion,
@@ -83,6 +83,6 @@ public class CrowdfundingController {
         // Guardar la instancia de Crowdfunding en la base de datos
         crowdfundingRepo.save(crowdfunding);
 
-        return "redirect:/crowdfundings";
+        return "redirect:/newCrowdfunding";
     }
 }

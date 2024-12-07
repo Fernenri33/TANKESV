@@ -1,0 +1,145 @@
+@font-face {
+    font-family: 'NeueMachina';
+    src: url('/neue-machina/Neue_Machina/NeueMachina-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+label{
+    color: white;
+    font-size: 20px;
+}
+
+input::placeholder, textarea::placeholder{
+    color: #fff !important;
+}
+
+body {
+    font-family: 'NeueMachina', sans-serif;
+    background-color: #222125;
+    margin: 0;
+    padding: 0px;
+}
+
+.body2{
+    font-family: 'NeueMachina', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    margin: 0;
+    padding: 0 0px;
+    background-color: #222125; /* Fondo oscuro */
+    color: #ffffff; /* Texto blanco */
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #333; /* Fondo más claro para el encabezado */
+}
+
+/*DISEÑO DE BARRA DE NAVEGACION*/
+.navbar{
+    background-color: #0e3af6 !important;
+    height: 62px;
+ }
+ /* El brand será cambiado por una imagen */
+
+.aBarraNav
+{
+    font-size: 20px;
+    margin: 0 20px;
+    height: 62px;
+    text-decoration: none;
+    color: #fff;
+        transition: transform 0.3s ease;
+}
+h1{
+    margin-top: 50px;
+    color: #fff;
+}
+.a{
+    color: #fff;
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mb-3{
+    display: flex;
+    flex-direction: column;   
+}
+input,textarea{
+    background-color: transparent !important;
+    color: white !important;
+    border-width: 2px !important;
+    font-family: 'Poppins', sans-serif;
+}
+form{
+    margin-top: 2%;
+    width: 40%;
+}
+#metaMonetaria{
+    width: 25%;
+}
+.mt-4{
+    margin: 0 !important;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.mainText{
+    margin-top: 5%;
+    margin-bottom: 1%;
+}
+
+.mt-4::placeholder{
+    color: #fff !important;
+}
+
+.row.container1{
+    display: flex;
+    padding: 0;
+    margin: 20px 10px;
+    justify-content: center;
+}
+.product-card{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 20%;
+    padding-top: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.img-fluid{
+    margin-bottom: 10px;
+}
+.product-card .brand {
+    font-size: 14px;
+    color: #aaa;
+}
+.product-card .name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+}
+.btn{
+    background-color: #0e3af6;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.btn:hover{
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
