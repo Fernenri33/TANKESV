@@ -24,9 +24,9 @@ public class GestionCatalogoService {
 
     private String upload_files = "src/main/resources/static/uploads/";
     
-    // Obtener todos los datos de DB gestion_catalogo
-    public List<GestionCatalogo> obtenerCatalogo() {
-        return gestionCatalogoRepo.findAll();
+    //Obtener todos los datos de DB gestion_catalogo
+    public List<GestionCatalogo> obtenerCatalogo(Empresario empresario) {
+        return gestionCatalogoRepo.findByEmpresario(empresario);
     }
 
     // Agregar al catalogo un producto

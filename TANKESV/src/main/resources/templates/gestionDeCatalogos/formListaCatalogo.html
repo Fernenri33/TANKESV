@@ -35,19 +35,19 @@
                         <th scope="col">Accion</th>
                     </tr>
                 </thead>
-                <tbody th:each="gestion_catalogo : ${gestion_catalogos}">
+                <tbody th:each="producto : ${gestion_catalogos}">
                     <tr>
-                        <td th:text="${gestion_catalogo.id}"></td>
-                        <td th:text="${gestion_catalogo.nombreProducto}"></td>
-                        <td th:text="${gestion_catalogo.descripcionProducto}"></td>
-                        <td th:text="${gestion_catalogo.precioProducto}"></td>
-                        <td th:text="${gestion_catalogo.cantidadProducto}"></td>
+                        <td th:text="${producto.id}"></td>
+                        <td th:text="${producto.nombreProducto}"></td>
+                        <td th:text="${producto.descripcionProducto}"></td>
+                        <td th:text="${producto.precioProducto}"></td>
+                        <td th:text="${producto.cantidadProducto}"></td>
                         <td>
-                            <img th:src="@{'uploads/' + ${gestion_catalogo.imagenProducto}}" width="175px" height="75px" alt="imagen">
+                            <img th:src="@{'uploads/' + ${producto.imagenProducto}}" width="175px" height="75px" alt="imagen">
                         </td> 
                         <td>
-                            <a th:href="@{'/EditarCatalogo/' + ${gestion_catalogo.id}}" class="btn btn-warning">Editar</a>
-                            <form th:action="@{'/EliminarCatalogo/' + ${gestion_catalogo.id}}" method="post" style="display:inline;">
+                            <a th:href="@{'/EditarCatalogo/' + ${producto.id}}" class="btn btn-warning">Editar</a>
+                            <form th:action="@{'/EliminarCatalogo/' + ${producto.id}}" method="post" style="display:inline;">
                                 <button type="submit" class="btn btn-danger">Eliminar</button>
                             </form>
                         </td>

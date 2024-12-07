@@ -26,7 +26,7 @@ public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Excepti
         .csrf(csrf -> csrf.disable())
         .authorizeHttpRequests(auth -> auth
             // Permitir acceso sin autenticación
-            .requestMatchers("/", "/css/**", "/js/**", "/img/**","/neue-machina/**").permitAll()
+            .requestMatchers("/", "/css/**", "/js/**", "/img/**","/neue-machina/**","/CreacionPerfil/**").permitAll()
             
             // Acceso exclusivo para ROLE_EMPRESARIO
             .requestMatchers(

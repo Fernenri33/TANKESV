@@ -2,6 +2,7 @@ package com.app.tankesv.controllers.formsControllers;
 
 import java.io.IOException;
 import java.security.Principal;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.app.tankesv.model.Empresario;
+import com.app.tankesv.model.GestionCatalogo;
 import com.app.tankesv.repo.EmpresarioRepository;
 import com.app.tankesv.repo.GestionCatalogoRepo;
 import com.app.tankesv.service.GestionCatalogoService;
@@ -37,10 +39,23 @@ public class GestionDeCatalogoController {
 
     // Mostrar Formulario Listado del Catalogox
     @GetMapping("/ListaCatalogo")
-    public String listaCatalogo(Model model){
-        model.addAttribute("gestion_catalogos", gestionCatalogoService.obtenerCatalogo());
+    public String listaCatalogo(Model model, Principal principal) {
+        // Obtener el email del usuario autenticado
+        String email = principal.getName();
+    
+        // Buscar al empresario por su correo
+        Empresario empresario = empresarioRepository.findByUsuarioCorreo(email)
+            .orElseThrow(() -> new IllegalStateException("El usuario no está registrado como empresario"));
+    
+        // Obtener los productos asociados al empresario
+        List<GestionCatalogo> productos = gestionCatalogoService.obtenerCatalogo(empresario);
+    
+        // Pasar la lista de productos al modelo
+        model.addAttribute("gestion_catalogos", productos);
+    
         return "gestionDeCatalogos/formListaCatalogo";
     }
+    
 
     // Agregar un producto al catálogo
     @PostMapping("/AgregarCatalogo")
