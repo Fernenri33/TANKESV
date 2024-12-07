@@ -1,11 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Mis crowdfundings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        .btn {
+            text-decoration: none;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+
+        .btn-edit {
+            background-color: #4CAF50;
+        }
+
+        .btn-edit:hover {
+            background-color: #45a049;
+        }
+
+        .btn-delete {
+            background-color: #e63946;
+        }
+
+        .btn-delete:hover {
+            background-color: #d62828;
+        }
+    </style>
 </head>
 <body>
-    
+    <h1>Mis Crowdfundings</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Meta</th>
+                <th>Canatidad recaudada</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Recorremos la lista de crowdfundings -->
+            <tr th:each="crowdfunding : ${crowdfundings}">
+                <td th:text="${crowdfunding.titulo}">Título del Crowdfunding</td>
+                <td th:text="${crowdfunding.meta}">Meta del Crowdfunding</td>
+                <td th:text="${crowdfunding.recaudado}">Canatidad recaudada</td>
+                <td>
+                    <a th:href="@{'/editCrowdfunding/' + ${crowdfunding.idCrowdfunding}}" class="btn btn-edit">Editar</a>
+                    <a th:href="@{'/eliminar/' + ${crowdfunding.idCrowdfunding}}" class="btn btn-delete">Eliminar</a>
+                </td>
+            </tr>
+            <!-- Mensaje para cuando no hay crowdfundings -->
+            <tr th:if="${#lists.isEmpty(crowdfundings)}">
+                <td colspan="3" style="text-align: center;">No hay crowdfundings disponibles.</td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
