@@ -20,16 +20,19 @@
         <h1 class="h1">Catálogo de Productos</h1>
 
         <!-- Barra de búsqueda -->
-        <div class="search-bar">
-            <input type="text" id="searchQuery" placeholder="Buscar por nombre...">
-        </div>
-        <br><br>
-        <!-- Resultados -->
-        <div id="productResults" class="product-list">
-            <!-- Aquí se mostrarán los productos -->
-        </div>
-    </div>
+        <form action="/Producto" method="get" class="search-bar d-flex">
+            <input 
+                type="text" 
+                name="nombreProducto" 
+                id="searchQuery" 
+                class="form-control me-2" 
+                placeholder="Buscar por nombre..." 
+                value="">
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </form>
 
+        <!-- Espacio entre la barra de búsqueda y los resultados -->
+        <br><br>
 
         <!-- Resultados dinámicos -->
         <section class="container espacio mt-4 row">
@@ -43,16 +46,12 @@
                         <p class="card-text"><strong th:text="'Precio: $' + ${producto.precioProducto}">Precio</strong></p>
                         <p class="card-text"><strong th:text="'Cantidad disponible: ' + ${producto.cantidadProducto}">Cantidad</strong></p>
                     </div>
-                    
                 </div>
             </div>
         </section>
-
     </main>
 
     <!-- Scripts de Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-   
 </body>
 </html>
