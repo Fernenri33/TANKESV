@@ -1,7 +1,9 @@
 package com.app.tankesv.controllers;
 
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+
 
 @Controller
 public class FormsController {
@@ -60,12 +62,6 @@ public class FormsController {
     public String mostrarformReporteIncidentes(){
         return "formularios/formReportes";
     }
-
-    @GetMapping("/Empresario")
-    public String PerfilEmprendedor(){
-        return "formularios/formEmpresario";
-    }
-
 
     @GetMapping("/Catalogo")
     public String mostrarformCatalogoEmprendedor(){

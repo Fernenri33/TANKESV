@@ -20,12 +20,25 @@ public class EmpresarioController {
     @Autowired
     private UsuarioRepo usuarioRepo;
 
+    @GetMapping("/Empresario")
+    public String PerfilEmprendedor(Principal principal){
+
+        String email = principal.getName();
+        Usuario usuario = usuarioRepo.findByCorreo(email).orElseThrow(() -> new IllegalStateException("El usuario no está registrado como empresario"));
+        
+        if ("EMPRESARIO".equals(usuario.getRole())) {
+            return "redirect:/homeUsuario";
+        }else{
+            return "formularios/formEmpresario";
+        }
+    }
+
     @PostMapping ("/Empresario")
     public String crearEmpresario(@ModelAttribute Empresario empresario, Principal principal) {
         
         String email = principal.getName();
-
         Usuario usuario = usuarioRepo.findByCorreo(email).orElseThrow(() -> new IllegalStateException("El usuario no está registrado como empresario"));
+
         usuario.setRole("EMPRESARIO");
 
         usuarioRepo.save(usuario);
@@ -34,7 +47,7 @@ public class EmpresarioController {
         empresarioRepository.save(empresario);
 
         return "redirect:/homeUsuario";
- }
+    }
 }
 
 
