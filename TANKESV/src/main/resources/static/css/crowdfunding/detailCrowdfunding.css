@@ -1,0 +1,83 @@
+/* Fuente personalizada */
+@font-face {
+    font-family: 'NeueMachina';
+    src: url('/neue-machina/Neue_Machina/NeueMachina-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* General */
+body {
+    font-family: 'NeueMachina', sans-serif;
+    background-color: #222125;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    text-align: center;
+    padding: 20px 10px;
+    background-color: #333136;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #f4f4f9;
+    margin: 0;
+}
+
+/* Sección de imagen */
+.image-section {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.main-image {
+    max-width: 90%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Detalles */
+.details-section {
+    margin: 20px;
+    padding: 15px;
+    background-color: #333136;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+}
+
+.details-section p {
+    margin: 10px 0;
+    font-size: 1.1rem;
+}
+
+.goal, .raised {
+    font-weight: bold;
+    color: #ffc857;
+}
+
+/* Botón */
+.action-section {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.btn{
+    background-color: #0e3af6;
+    color: white;
+}
+.btn:hover {
+    background-color: #ffffff;
+    cursor: pointer;
+}
+/* Imagen */
+.main-image {
+    max-width: 50%; /* Cambia el tamaño máximo al 50% del ancho del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    margin: 20px auto; /* Centra la imagen vertical y horizontalmente */
+    display: block; /* Asegura que la imagen se comporte como un bloque */
+}

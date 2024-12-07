@@ -1,9 +1,6 @@
 package com.app.tankesv.model;
 
 import java.math.BigDecimal;
-import java.util.Set;
-
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,7 +8,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -40,10 +36,7 @@ public class Crowdfunding {
     private Empresario empresario;
 
     @Column(name = "main_img")
-    private String main_img;
-
-    @OneToMany(mappedBy = "crowdfunding", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<CrowdfundingImg> imagenes;    
+    private String main_img; 
 
     public Crowdfunding() {
     }
@@ -94,14 +87,6 @@ public class Crowdfunding {
 
     public void setEmpresario(Empresario empresario) {
         this.empresario = empresario;
-    }
-
-    public Set<CrowdfundingImg> getImagenes() {
-        return this.imagenes;
-    }
-
-    public void setImagenes(Set<CrowdfundingImg> imagenes) {
-        this.imagenes = imagenes;
     }
 
     public String getMain_img() {

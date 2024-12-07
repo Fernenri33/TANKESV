@@ -143,3 +143,14 @@ form{
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+/* Imagen */
+.main-image {
+    max-width: 50%; /* Cambia el tamaño máximo al 50% del ancho del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    margin: 20px auto; /* Centra la imagen vertical y horizontalmente */
+    display: block; /* Asegura que la imagen se comporte como un bloque */
+}
+
