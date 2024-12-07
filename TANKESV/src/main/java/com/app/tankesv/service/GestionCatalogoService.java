@@ -22,12 +22,24 @@ public class GestionCatalogoService {
     @Autowired
     GestionCatalogoRepo gestionCatalogoRepo;
 
-    private String upload_files = "src/main/resources/static/uploads/";
+    private static final String upload_files = "tankesv/src/main/resources/static/uploads/";
+
     
     //Obtener todos los datos de DB gestion_catalogo
     public List<GestionCatalogo> obtenerCatalogo(Empresario empresario) {
         return gestionCatalogoRepo.findByEmpresario(empresario);
     }
+
+    //obtener todos los datos para la gestion catalogo
+    public List<GestionCatalogo> obtenerCatalogoUsuario() {
+        return gestionCatalogoRepo.findAll();
+    }
+
+    public List<GestionCatalogo> obtenerProductoNombre(String nombreProducto) {
+        return gestionCatalogoRepo.findByNombreProducto(nombreProducto);
+    }
+
+
 
     // Agregar al catalogo un producto
     public void agregarProducto(String nombreProducto, String descripcionProducto, double precioProducto, int cantidadProducto, 

@@ -9,4 +9,5 @@ import com.app.tankesv.model.GestionCatalogo;
 
 public interface GestionCatalogoRepo extends JpaRepository<GestionCatalogo, Long> {
     List<GestionCatalogo> findByEmpresario(Empresario empresario);
+    List<GestionCatalogo> findByNombreProducto(String nombreProducto);
 }
