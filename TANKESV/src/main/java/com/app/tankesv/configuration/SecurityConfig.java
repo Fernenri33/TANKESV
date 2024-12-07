@@ -37,8 +37,7 @@ public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Excepti
                 "/EliminarCatalogo/{id}",
                 "/editCrowdfunding/{id}",
                 "/MisCrowdfundings",
-                "/Pago/{id}",
-                "/ListaCatalogo"
+                "/Pago/{id}"
             ).hasRole("EMPRESARIO")
 
             // Acceso exclusivo para ROLE_USUARIO

@@ -95,4 +95,29 @@ public class MyCrowdfundingsController {
 
         return "redirect:/crowdfundings";
     }
+
+    @GetMapping("/eliminar/{id}")
+    public String eliminarCrowdfunding(@PathVariable int id, Principal principal) {
+    // Obtener el correo del usuario autenticado
+    String email = principal.getName();
+
+    // Buscar al empresario por su correo
+    Empresario empresario = empresarioRepository.findByUsuarioCorreo(email)
+        .orElseThrow(() -> new IllegalStateException("El usuario no está registrado como empresario"));
+
+    // Buscar el crowdfunding por su id
+    Crowdfunding crowdfunding = crowdfundingRepo.findById(id)
+        .orElseThrow(() -> new EntityNotFoundException("Crowdfunding no encontrado"));
+
+    // Verificar que el crowdfunding pertenece al empresario
+    if (crowdfunding.getEmpresario().getIdEmpresario() != empresario.getIdEmpresario()) {
+        throw new IllegalStateException("No tiene permisos para eliminar este crowdfunding");
+    }
+
+    // Eliminar el crowdfunding
+    crowdfundingRepo.delete(crowdfunding);
+
+    // Redirigir de vuelta al dashboard
+    return "redirect:/MisCrowdfundings";
+}
 }
