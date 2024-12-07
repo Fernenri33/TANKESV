@@ -4,6 +4,9 @@ import com.app.tankesv.model.Crowdfunding;
 import com.app.tankesv.model.Pago;
 import com.app.tankesv.repo.CrowdfundingRepo;
 import com.app.tankesv.repo.PagoRepository;
+
+import java.math.BigDecimal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -44,11 +47,14 @@ public class PagoController {
 
         Integer integerId = Math.toIntExact(id);
        
-        Crowdfunding crowdfunding = crowdfundingRepo.findById(integerId)
-            .orElseThrow(() -> new IllegalArgumentException("Crowdfunding no encontrado con el ID: " + integerId));
+        Crowdfunding crowdfunding = crowdfundingRepo.findById(integerId).orElseThrow(() -> new IllegalArgumentException("Crowdfunding no encontrado con el ID: " + integerId));
+
+        BigDecimal nuevoMonto = pago.getMonto().add(crowdfunding.getRecaudado());
+        
+        crowdfunding.setRecaudado(nuevoMonto);
+        crowdfundingRepo.save(crowdfunding);
 
         pago.setCrowdfunding(crowdfunding);
-
         pagoRepository.save(pago);
 
         return ResponseEntity.status(HttpStatus.CREATED).body("Pago realizado con éxito.");

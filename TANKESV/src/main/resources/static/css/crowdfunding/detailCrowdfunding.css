@@ -1,4 +1,4 @@
-/* Fuente personalizada */
+/* Fuentes Personalizadas */
 @font-face {
     font-family: 'NeueMachina';
     src: url('/neue-machina/Neue_Machina/NeueMachina-Regular.otf') format('opentype');
@@ -6,46 +6,52 @@
     font-style: normal;
 }
 
-/* General */
+/* Estilos Generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'NeueMachina', sans-serif;
     background-color: #222125;
-    color: white;
-    margin: 0;
-    padding: 0;
+    color: #e0e0e0;
 }
 
+/* Encabezado */
 header {
     text-align: center;
-    padding: 20px 10px;
-    background-color: #333136;
+    background-color: #222125;
+    padding: 20px 0;
+   
+    color: #fff;
+    font-size: 1.8rem;
 }
 
-h1 {
-    font-size: 2.5rem;
-    color: #f4f4f9;
-    margin: 0;
+/* Sección Principal */
+.container {
+    padding: 20px;
 }
 
-/* Sección de imagen */
 .image-section {
-    text-align: center;
+    display: flex;
+    justify-content: center;
     margin: 20px 0;
 }
 
 .main-image {
-    max-width: 90%;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    max-width: 80%;
+    height: auto;
+    border-radius: 12px;
 }
 
 /* Detalles */
 .details-section {
-    margin: 20px;
-    padding: 15px;
-    background-color: #333136;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+    background-color: #222125;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
 }
 
 .details-section p {
@@ -53,31 +59,47 @@ h1 {
     font-size: 1.1rem;
 }
 
-.goal, .raised {
-    font-weight: bold;
-    color: #ffc857;
-}
-
-/* Botón */
+/* Sección del Botón */
 .action-section {
     text-align: center;
     margin: 20px 0;
 }
 
-.btn{
+.btn {
     background-color: #0e3af6;
-    color: white;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
+
 .btn:hover {
     background-color: #ffffff;
-    cursor: pointer;
+    color: #0e3af6;
 }
-/* Imagen */
-.main-image {
-    max-width: 50%; /* Cambia el tamaño máximo al 50% del ancho del contenedor */
-    height: auto; /* Mantiene la proporción de la imagen */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    margin: 20px auto; /* Centra la imagen vertical y horizontalmente */
-    display: block; /* Asegura que la imagen se comporte como un bloque */
+
+/* Pie de página */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #222125;
+    font-size: 0.9rem;
+    margin-top: 30px;
+}
+
+/* Responsividad para Móviles */
+@media (max-width: 768px) {
+    .main-image {
+        max-width: 100%;
+    }
+
+    .details-section,
+    .action-section {
+        padding: 10px;
+    }
+
+    .btn {
+        padding: 8px 15px;
+    }
 }
